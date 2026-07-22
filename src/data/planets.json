@@ -1,0 +1,53 @@
+[
+  {
+    "id": "sol",
+    "name": "Sol",
+    "type": "star",
+    "x": 0.5,
+    "y": 0.5,
+    "description": "The home star at the heart of the map."
+  },
+  {
+    "id": "terra",
+    "name": "Terra",
+    "type": "planet",
+    "x": 0.52,
+    "y": 0.47,
+    "description": "A pale blue dot near Sol."
+  },
+  {
+    "id": "kepler-22b",
+    "name": "Kepler-22b",
+    "type": "planet",
+    "x": 0.31,
+    "y": 0.34
+  },
+  {
+    "id": "betelgeuse",
+    "name": "Betelgeuse",
+    "type": "star",
+    "x": 0.73,
+    "y": 0.24
+  },
+  {
+    "id": "proxima-centauri",
+    "name": "Proxima Centauri",
+    "type": "star",
+    "x": 0.44,
+    "y": 0.63
+  },
+  {
+    "id": "vega",
+    "name": "Vega",
+    "type": "star",
+    "x": 0.66,
+    "y": 0.71
+  },
+  {
+    "id": "trappist-1e",
+    "name": "TRAPPIST-1e",
+    "type": "planet",
+    "x": 0.19,
+    "y": 0.81
+  }
+]
