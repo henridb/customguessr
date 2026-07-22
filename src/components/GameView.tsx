@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { GameController } from "../game/useGame";
 import { MAX_ROUND_SCORE } from "../game/scoring";
 import { MapView, type MapMarker } from "./MapView";
@@ -9,27 +9,38 @@ function formatTime(seconds: number): string {
   return `${m}:${s.toString().padStart(2, "0")}`;
 }
 
-/** One round of play: timer, prompt, clickable map, and the reveal after submit. */
-export function GameView({ game }: { game: GameController }) {
-  const { round, roundNumber, totalRounds, phase, pendingGuess, isLast, session, secondsPerRound } = game;
-  const [remaining, setRemaining] = useState(secondsPerRound);
+/**
+ * Per-round countdown. Kept as its own component and mounted with key={round} so
+ * each round gets a fresh timer — this avoids a stale `remaining` from the
+ * previous round leaking into the next one (which made a timed-out round start
+ * the next round at 0).
+ */
+function RoundTimer({ seconds, onExpire }: { seconds: number; onExpire: () => void }) {
+  const [remaining, setRemaining] = useState(seconds);
+  // Keep the latest callback without making it a timer dependency.
+  const expireRef = useRef(onExpire);
+  expireRef.current = onExpire;
 
-  // Reset the countdown at the start of each round's guessing phase.
   useEffect(() => {
-    if (phase === "guessing") setRemaining(secondsPerRound);
-  }, [phase, roundNumber, secondsPerRound]);
-
-  // Tick down once per second while guessing; fire timeUp() at zero.
-  useEffect(() => {
-    if (phase !== "guessing") return;
     if (remaining <= 0) {
-      game.timeUp();
+      expireRef.current();
       return;
     }
     const id = setTimeout(() => setRemaining((r) => r - 1), 1000);
     return () => clearTimeout(id);
-  }, [phase, remaining, roundNumber, game]);
+  }, [remaining]);
 
+  const low = remaining <= 10;
+  return (
+    <span className={`font-mono text-lg font-semibold ${low ? "animate-pulse text-rose-400" : "text-slate-100"}`}>
+      {formatTime(remaining)}
+    </span>
+  );
+}
+
+/** One round of play: timer, prompt, clickable map, and the reveal after submit. */
+export function GameView({ game }: { game: GameController }) {
+  const { round, roundNumber, totalRounds, phase, pendingGuess, isLast, session, secondsPerRound } = game;
   if (!round || !session) return null;
 
   const target = { x: round.body.x, y: round.body.y };
@@ -41,7 +52,6 @@ export function GameView({ game }: { game: GameController }) {
   if (revealed) markers.push({ id: "target", point: target, variant: "target", label: round.body.name });
 
   const connections = revealed && pendingGuess ? [[pendingGuess, target] as [typeof target, typeof target]] : [];
-  const lowTime = !revealed && remaining <= 10;
 
   return (
     <div className="mx-auto flex h-full w-full max-w-5xl flex-col gap-3 px-4 py-4">
@@ -49,11 +59,7 @@ export function GameView({ game }: { game: GameController }) {
         <span className="text-sm uppercase tracking-widest text-slate-400">
           Round {roundNumber} / {totalRounds}
         </span>
-        {!revealed && (
-          <span className={`font-mono text-lg font-semibold ${lowTime ? "animate-pulse text-rose-400" : "text-slate-100"}`}>
-            {formatTime(remaining)}
-          </span>
-        )}
+        {!revealed && <RoundTimer key={roundNumber} seconds={secondsPerRound} onExpire={game.timeUp} />}
         <span className="text-sm text-slate-400">
           Score: <span className="font-semibold text-slate-100">{session.totalScore.toLocaleString()}</span>
         </span>
