@@ -1,7 +1,7 @@
 import type { Point } from "../types";
 import { MAP_ASPECT_RATIO } from "../data/mapConfig";
 
-export const ROUNDS_PER_GAME = 20;
+export const ROUNDS_PER_GAME = 5;
 export const MAX_ROUND_SCORE = 5000;
 export const MAX_GAME_SCORE = ROUNDS_PER_GAME * MAX_ROUND_SCORE;
 
