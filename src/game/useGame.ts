@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
-import type { Point } from "../types";
 import { bodies } from "../data/bodies";
+import type { Point } from "../types";
 import {
   advance,
   applyGuess,
@@ -15,7 +15,7 @@ import {
 /** Within a round: placing/confirming a guess, then reviewing the reveal. */
 export type RoundPhase = "guessing" | "revealed";
 
-export const DEFAULT_SECONDS_PER_ROUND = 60;
+export const DEFAULT_SECONDS_PER_ROUND = 15;
 
 export interface GameController {
   session: GameSession | null;
@@ -46,17 +46,16 @@ export function useGame(): GameController {
   const [session, setSession] = useState<GameSession | null>(null);
   const [phase, setPhase] = useState<RoundPhase>("guessing");
   const [pendingGuess, setPendingGuess] = useState<Point | null>(null);
-  const [secondsPerRound, setSecondsPerRound] = useState(DEFAULT_SECONDS_PER_ROUND);
-
-  const start = useCallback(
-    (seconds?: number) => {
-      if (seconds !== undefined) setSecondsPerRound(seconds);
-      setSession(createSession(bodies));
-      setPhase("guessing");
-      setPendingGuess(null);
-    },
-    [],
+  const [secondsPerRound, setSecondsPerRound] = useState(
+    DEFAULT_SECONDS_PER_ROUND,
   );
+
+  const start = useCallback((seconds?: number) => {
+    if (seconds !== undefined) setSecondsPerRound(seconds);
+    setSession(createSession(bodies));
+    setPhase("guessing");
+    setPendingGuess(null);
+  }, []);
 
   const reset = useCallback(() => {
     setSession(null);
@@ -66,7 +65,9 @@ export function useGame(): GameController {
 
   const placeGuess = useCallback(
     (point: Point) => {
-      if (phase === "guessing") setPendingGuess(point);
+      if (phase === "guessing")
+        setPendingGuess({ x: point.x, y: point.y + 0.0005 });
+      // to counteract an odd offset
     },
     [phase],
   );
@@ -79,7 +80,9 @@ export function useGame(): GameController {
 
   const timeUp = useCallback(() => {
     if (phase !== "guessing" || !session) return;
-    setSession(pendingGuess ? applyGuess(session, pendingGuess) : applyMiss(session));
+    setSession(
+      pendingGuess ? applyGuess(session, pendingGuess) : applyMiss(session),
+    );
     setPhase("revealed");
   }, [phase, session, pendingGuess]);
 

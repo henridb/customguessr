@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from "react";
 import type { PointerEvent as ReactPointerEvent } from "react";
+import { useEffect, useRef, useState } from "react";
+import { MAP_IMAGE_URL } from "../data/mapConfig";
 import type { Point } from "../types";
-import { MAP_ASPECT_RATIO, MAP_IMAGE_URL } from "../data/mapConfig";
 
 export type MarkerVariant = "guess" | "target" | "planet" | "star";
 
@@ -42,11 +42,17 @@ interface View {
 /** Size of the image when fit ("contained") inside the viewport. */
 function computeFit(vw: number, vh: number, aspect: number) {
   if (vw <= 0 || vh <= 0) return { fw: 0, fh: 0 };
-  return vw / vh > aspect ? { fw: vh * aspect, fh: vh } : { fw: vw, fh: vw / aspect };
+  return vw / vh > aspect
+    ? { fw: vh * aspect, fh: vh }
+    : { fw: vw, fh: vw / aspect };
 }
 
 /** Keep the (possibly zoomed) image from being dragged out of view. */
-function clampTranslate(t: number, viewportLen: number, scaledLen: number): number {
+function clampTranslate(
+  t: number,
+  viewportLen: number,
+  scaledLen: number,
+): number {
   if (scaledLen <= viewportLen) return (viewportLen - scaledLen) / 2;
   return Math.min(0, Math.max(viewportLen - scaledLen, t));
 }
@@ -59,12 +65,17 @@ function clampTranslate(t: number, viewportLen: number, scaledLen: number): numb
  * anything more is a pan. Marker sizes and line widths are counter-scaled so
  * they stay visually constant as you zoom. Reused by the game and admin editor.
  */
-export function MapView({ markers = [], onBackgroundClick, connections = [], className }: MapViewProps) {
+export function MapView({
+  markers = [],
+  onBackgroundClick,
+  connections = [],
+  className,
+}: MapViewProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
 
   const [size, setSize] = useState({ vw: 0, vh: 0 });
-  const [aspect, setAspect] = useState(MAP_ASPECT_RATIO);
+  const [aspect, setAspect] = useState(1);
   const [view, setView] = useState<View>({ scale: 1, x: 0, y: 0 });
 
   const { fw, fh } = computeFit(size.vw, size.vh, aspect);
@@ -73,7 +84,14 @@ export function MapView({ markers = [], onBackgroundClick, connections = [], cla
   const geom = useRef({ vw: 0, vh: 0, fw: 0, fh: 0 });
   geom.current = { vw: size.vw, vh: size.vh, fw, fh };
 
-  const drag = useRef({ active: false, moved: false, startX: 0, startY: 0, origX: 0, origY: 0 });
+  const drag = useRef({
+    active: false,
+    moved: false,
+    startX: 0,
+    startY: 0,
+    origX: 0,
+    origY: 0,
+  });
 
   // Track the viewport size.
   useEffect(() => {
@@ -113,7 +131,11 @@ export function MapView({ markers = [], onBackgroundClick, connections = [], cla
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
       const rect = el.getBoundingClientRect();
-      zoomAt(e.clientX - rect.left, e.clientY - rect.top, e.deltaY < 0 ? 1.15 : 1 / 1.15);
+      zoomAt(
+        e.clientX - rect.left,
+        e.clientY - rect.top,
+        e.deltaY < 0 ? 1.15 : 1 / 1.15,
+      );
     };
     el.addEventListener("wheel", onWheel, { passive: false });
     return () => el.removeEventListener("wheel", onWheel);
@@ -121,7 +143,14 @@ export function MapView({ markers = [], onBackgroundClick, connections = [], cla
 
   function onPointerDown(e: ReactPointerEvent<HTMLDivElement>) {
     viewportRef.current?.setPointerCapture(e.pointerId);
-    drag.current = { active: true, moved: false, startX: e.clientX, startY: e.clientY, origX: view.x, origY: view.y };
+    drag.current = {
+      active: true,
+      moved: false,
+      startX: e.clientX,
+      startY: e.clientY,
+      origX: view.x,
+      origY: view.y,
+    };
   }
 
   function onPointerMove(e: ReactPointerEvent<HTMLDivElement>) {
@@ -188,13 +217,18 @@ export function MapView({ markers = [], onBackgroundClick, connections = [], cla
             draggable={false}
             onLoad={(e) => {
               const { naturalWidth, naturalHeight } = e.currentTarget;
-              if (naturalWidth > 0 && naturalHeight > 0) setAspect(naturalWidth / naturalHeight);
+              if (naturalWidth > 0 && naturalHeight > 0)
+                setAspect(naturalWidth / naturalHeight);
             }}
             className="block h-full w-full object-cover"
           />
 
           {connections.length > 0 && (
-            <svg className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <svg
+              className="pointer-events-none absolute inset-0 h-full w-full"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+            >
               {connections.map(([a, b], i) => (
                 <line
                   key={i}
@@ -213,10 +247,20 @@ export function MapView({ markers = [], onBackgroundClick, connections = [], cla
           )}
 
           {markers.map((m) => (
-            <div key={m.id} className="absolute" style={{ left: `${m.point.x * 100}%`, top: `${m.point.y * 100}%` }}>
+            <div
+              key={m.id}
+              className="absolute"
+              style={{
+                left: `${m.point.x * 100}%`,
+                top: `${m.point.y * 100}%`,
+              }}
+            >
               <div
                 className="absolute flex flex-col items-center"
-                style={{ transform: `translate(-50%, -50%) scale(${1 / view.scale})`, transformOrigin: "center" }}
+                style={{
+                  transform: `translate(-50%, -50%) scale(${1 / view.scale})`,
+                  transformOrigin: "center",
+                }}
               >
                 <button
                   type="button"
@@ -227,7 +271,9 @@ export function MapView({ markers = [], onBackgroundClick, connections = [], cla
                     m.onClick?.();
                   }}
                   className={`block h-3.5 w-3.5 rounded-full ring-2 shadow transition ${VARIANT_STYLE[m.variant]} ${
-                    m.onClick ? "cursor-pointer hover:scale-125" : "cursor-default"
+                    m.onClick
+                      ? "cursor-pointer hover:scale-125"
+                      : "cursor-default"
                   }`}
                 />
                 {m.label && (
@@ -247,13 +293,28 @@ export function MapView({ markers = [], onBackgroundClick, connections = [], cla
         className="absolute bottom-2 right-2 flex flex-col overflow-hidden rounded-lg border border-white/10 bg-slate-900/80 text-slate-100 backdrop-blur"
         onPointerDown={(e) => e.stopPropagation()}
       >
-        <button type="button" onClick={() => zoomButton(1.3)} className="px-3 py-1.5 text-lg leading-none hover:bg-white/10" aria-label="Zoom in">
+        <button
+          type="button"
+          onClick={() => zoomButton(1.3)}
+          className="px-3 py-1.5 text-lg leading-none hover:bg-white/10"
+          aria-label="Zoom in"
+        >
           +
         </button>
-        <button type="button" onClick={() => zoomButton(1 / 1.3)} className="border-t border-white/10 px-3 py-1.5 text-lg leading-none hover:bg-white/10" aria-label="Zoom out">
+        <button
+          type="button"
+          onClick={() => zoomButton(1 / 1.3)}
+          className="border-t border-white/10 px-3 py-1.5 text-lg leading-none hover:bg-white/10"
+          aria-label="Zoom out"
+        >
           −
         </button>
-        <button type="button" onClick={resetView} className="border-t border-white/10 px-3 py-1.5 text-xs leading-none hover:bg-white/10" aria-label="Reset view">
+        <button
+          type="button"
+          onClick={resetView}
+          className="border-t border-white/10 px-3 py-1.5 pbe-2.5 text-base leading-none hover:bg-white/10"
+          aria-label="Reset view"
+        >
           ⟲
         </button>
       </div>
