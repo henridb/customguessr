@@ -49,5 +49,13 @@
     "type": "planet",
     "x": 0.19,
     "y": 0.81
+  },
+  {
+    "id": "aa5bc194-b428-4da8-a30a-c1ffd8f37548",
+    "name": "Blob",
+    "type": "planet",
+    "x": 0.6965725806451613,
+    "y": 0.4713485608391437,
+    "description": "huhuhu"
   }
 ]
