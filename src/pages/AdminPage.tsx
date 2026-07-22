@@ -104,8 +104,8 @@ function Editor() {
   }));
 
   return (
-    <div className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-4 py-6">
-      <header className="flex flex-wrap items-center justify-between gap-3">
+    <div className="mx-auto flex h-screen w-full max-w-5xl flex-col gap-4 px-4 py-6">
+      <header className="flex shrink-0 flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="text-2xl font-bold">Admin editor</h1>
           <p className="text-sm text-slate-400">
@@ -126,9 +126,11 @@ function Editor() {
         </div>
       </header>
 
-      <MapView markers={markers} onBackgroundClick={openCreate} />
+      <div className="min-h-0 flex-1">
+        <MapView markers={markers} onBackgroundClick={openCreate} />
+      </div>
 
-      <p className="text-xs text-slate-500">
+      <p className="shrink-0 text-xs text-slate-500">
         Changes live only in this browser session. Use “Export planets.json”, then commit the file over
         <code className="mx-1 rounded bg-white/10 px-1">src/data/planets.json</code> to publish.
       </p>

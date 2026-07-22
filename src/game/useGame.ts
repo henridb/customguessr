@@ -4,6 +4,7 @@ import { bodies } from "../data/bodies";
 import {
   advance,
   applyGuess,
+  applyMiss,
   createSession,
   currentRound,
   isLastRound,
@@ -14,6 +15,8 @@ import {
 /** Within a round: placing/confirming a guess, then reviewing the reveal. */
 export type RoundPhase = "guessing" | "revealed";
 
+export const DEFAULT_SECONDS_PER_ROUND = 60;
+
 export interface GameController {
   session: GameSession | null;
   round: Round | null;
@@ -23,28 +26,37 @@ export interface GameController {
   /** The click the player has placed but not yet submitted. */
   pendingGuess: Point | null;
   isLast: boolean;
-  start: () => void;
+  /** Seconds allotted to each round for the current/most-recent game. */
+  secondsPerRound: number;
+  start: (secondsPerRound?: number) => void;
   reset: () => void;
   placeGuess: (point: Point) => void;
   submitGuess: () => void;
+  /** Timer expired: submit the pending guess, or record a miss if none. */
+  timeUp: () => void;
   nextRound: () => void;
 }
 
 /**
  * Owns the whole player game lifecycle: starting a session, placing/submitting a
- * guess for the current round, revealing the result, then advancing. Kept as a
- * hook so the player page stays declarative.
+ * guess for the current round, revealing the result, then advancing. Also holds
+ * the per-round time limit chosen before launch.
  */
 export function useGame(): GameController {
   const [session, setSession] = useState<GameSession | null>(null);
   const [phase, setPhase] = useState<RoundPhase>("guessing");
   const [pendingGuess, setPendingGuess] = useState<Point | null>(null);
+  const [secondsPerRound, setSecondsPerRound] = useState(DEFAULT_SECONDS_PER_ROUND);
 
-  const start = useCallback(() => {
-    setSession(createSession(bodies));
-    setPhase("guessing");
-    setPendingGuess(null);
-  }, []);
+  const start = useCallback(
+    (seconds?: number) => {
+      if (seconds !== undefined) setSecondsPerRound(seconds);
+      setSession(createSession(bodies));
+      setPhase("guessing");
+      setPendingGuess(null);
+    },
+    [],
+  );
 
   const reset = useCallback(() => {
     setSession(null);
@@ -65,6 +77,12 @@ export function useGame(): GameController {
     setPhase("revealed");
   }, [phase, session, pendingGuess]);
 
+  const timeUp = useCallback(() => {
+    if (phase !== "guessing" || !session) return;
+    setSession(pendingGuess ? applyGuess(session, pendingGuess) : applyMiss(session));
+    setPhase("revealed");
+  }, [phase, session, pendingGuess]);
+
   const nextRound = useCallback(() => {
     if (phase !== "revealed" || !session) return;
     setSession(advance(session));
@@ -82,10 +100,12 @@ export function useGame(): GameController {
     phase,
     pendingGuess,
     isLast: session ? isLastRound(session) : false,
+    secondsPerRound,
     start,
     reset,
     placeGuess,
     submitGuess,
+    timeUp,
     nextRound,
   };
 }

@@ -58,6 +58,14 @@ export function applyGuess(session: GameSession, guess: Point): GameSession {
   return { ...session, rounds, totalScore: session.totalScore + score };
 }
 
+/** Finalize the current round as a miss (no guess, 0 points). Returns a new session. */
+export function applyMiss(session: GameSession): GameSession {
+  const rounds = session.rounds.slice();
+  const i = session.currentIndex;
+  rounds[i] = { ...rounds[i], guess: null, score: 0 };
+  return { ...session, rounds };
+}
+
 /** Advance to the next round, or mark the game finished. Returns a new session. */
 export function advance(session: GameSession): GameSession {
   const nextIndex = session.currentIndex + 1;

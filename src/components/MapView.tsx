@@ -1,4 +1,5 @@
-import type { CSSProperties, ReactNode } from "react";
+import { useEffect, useRef, useState } from "react";
+import type { PointerEvent as ReactPointerEvent } from "react";
 import type { Point } from "../types";
 import { MAP_ASPECT_RATIO, MAP_IMAGE_URL } from "../data/mapConfig";
 
@@ -14,12 +15,16 @@ export interface MapMarker {
 
 interface MapViewProps {
   markers?: MapMarker[];
-  /** Fired with normalized [0,1] coords when the map background is clicked. */
+  /** Fired with normalized [0,1] coords for a genuine click (not a drag/pan). */
   onBackgroundClick?: (point: Point) => void;
   /** Straight lines drawn between point pairs (e.g. guess -> target on reveal). */
   connections?: Array<[Point, Point]>;
   className?: string;
 }
+
+const MIN_SCALE = 1;
+const MAX_SCALE = 10;
+const DRAG_THRESHOLD_PX = 5;
 
 const VARIANT_STYLE: Record<MarkerVariant, string> = {
   guess: "bg-amber-400 ring-amber-200",
@@ -28,78 +33,230 @@ const VARIANT_STYLE: Record<MarkerVariant, string> = {
   star: "bg-yellow-300 ring-yellow-100",
 };
 
-function pct(p: Point): CSSProperties {
-  return { left: `${p.x * 100}%`, top: `${p.y * 100}%` };
+interface View {
+  scale: number;
+  x: number;
+  y: number;
+}
+
+/** Size of the image when fit ("contained") inside the viewport. */
+function computeFit(vw: number, vh: number, aspect: number) {
+  if (vw <= 0 || vh <= 0) return { fw: 0, fh: 0 };
+  return vw / vh > aspect ? { fw: vh * aspect, fh: vh } : { fw: vw, fh: vw / aspect };
+}
+
+/** Keep the (possibly zoomed) image from being dragged out of view. */
+function clampTranslate(t: number, viewportLen: number, scaledLen: number): number {
+  if (scaledLen <= viewportLen) return (viewportLen - scaledLen) / 2;
+  return Math.min(0, Math.max(viewportLen - scaledLen, t));
 }
 
 /**
- * Renders the galaxy map at its true aspect ratio and reports clicks as
- * normalized [0,1] coordinates. Markers and connection lines are positioned by
- * the same normalized coords, so everything stays aligned at any screen size.
- * Reused by both the game (guess/target markers) and the admin editor (all bodies).
+ * The galaxy map, fit to its container's height with zoom (wheel / buttons) and
+ * click-drag panning. Clicks are reported as normalized [0,1] coordinates via
+ * the rendered image's bounding box, so they stay correct at any zoom/pan.
+ * A press that moves less than a few pixels counts as a click (guess / create);
+ * anything more is a pan. Marker sizes and line widths are counter-scaled so
+ * they stay visually constant as you zoom. Reused by the game and admin editor.
  */
 export function MapView({ markers = [], onBackgroundClick, connections = [], className }: MapViewProps) {
-  function handleClick(e: React.MouseEvent<HTMLDivElement>) {
-    if (!onBackgroundClick) return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width;
-    const y = (e.clientY - rect.top) / rect.height;
-    onBackgroundClick({ x: Math.min(1, Math.max(0, x)), y: Math.min(1, Math.max(0, y)) });
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  const [size, setSize] = useState({ vw: 0, vh: 0 });
+  const [aspect, setAspect] = useState(MAP_ASPECT_RATIO);
+  const [view, setView] = useState<View>({ scale: 1, x: 0, y: 0 });
+
+  const { fw, fh } = computeFit(size.vw, size.vh, aspect);
+
+  // Latest geometry for the non-passive wheel handler (which can't close over state).
+  const geom = useRef({ vw: 0, vh: 0, fw: 0, fh: 0 });
+  geom.current = { vw: size.vw, vh: size.vh, fw, fh };
+
+  const drag = useRef({ active: false, moved: false, startX: 0, startY: 0, origX: 0, origY: 0 });
+
+  // Track the viewport size.
+  useEffect(() => {
+    const el = viewportRef.current;
+    if (!el) return;
+    const ro = new ResizeObserver(([entry]) => {
+      setSize({ vw: entry.contentRect.width, vh: entry.contentRect.height });
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  // Re-fit (reset zoom, recenter) whenever the viewport size or image aspect changes.
+  useEffect(() => {
+    const f = computeFit(size.vw, size.vh, aspect);
+    setView({ scale: 1, x: (size.vw - f.fw) / 2, y: (size.vh - f.fh) / 2 });
+  }, [size.vw, size.vh, aspect]);
+
+  // Zoom toward a viewport point, keeping that point fixed under the cursor.
+  function zoomAt(cx: number, cy: number, factor: number) {
+    const { vw, vh, fw: gw, fh: gh } = geom.current;
+    if (gw <= 0) return;
+    setView((v) => {
+      const scale = Math.min(MAX_SCALE, Math.max(MIN_SCALE, v.scale * factor));
+      const localX = (cx - v.x) / v.scale;
+      const localY = (cy - v.y) / v.scale;
+      const x = clampTranslate(cx - localX * scale, vw, gw * scale);
+      const y = clampTranslate(cy - localY * scale, vh, gh * scale);
+      return { scale, x, y };
+    });
+  }
+
+  // Wheel zoom must call preventDefault, which requires a non-passive listener.
+  useEffect(() => {
+    const el = viewportRef.current;
+    if (!el) return;
+    const onWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      const rect = el.getBoundingClientRect();
+      zoomAt(e.clientX - rect.left, e.clientY - rect.top, e.deltaY < 0 ? 1.15 : 1 / 1.15);
+    };
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
+  }, []);
+
+  function onPointerDown(e: ReactPointerEvent<HTMLDivElement>) {
+    viewportRef.current?.setPointerCapture(e.pointerId);
+    drag.current = { active: true, moved: false, startX: e.clientX, startY: e.clientY, origX: view.x, origY: view.y };
+  }
+
+  function onPointerMove(e: ReactPointerEvent<HTMLDivElement>) {
+    const d = drag.current;
+    if (!d.active) return;
+    const dx = e.clientX - d.startX;
+    const dy = e.clientY - d.startY;
+    if (Math.hypot(dx, dy) > DRAG_THRESHOLD_PX) d.moved = true;
+    const { vw, vh, fw: gw, fh: gh } = geom.current;
+    setView((v) => ({
+      scale: v.scale,
+      x: clampTranslate(d.origX + dx, vw, gw * v.scale),
+      y: clampTranslate(d.origY + dy, vh, gh * v.scale),
+    }));
+  }
+
+  function onPointerUp(e: ReactPointerEvent<HTMLDivElement>) {
+    const d = drag.current;
+    if (!d.active) return;
+    d.active = false;
+    if (d.moved || !onBackgroundClick) return;
+    const img = imgRef.current;
+    if (!img) return;
+    const r = img.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width;
+    const y = (e.clientY - r.top) / r.height;
+    if (x >= 0 && x <= 1 && y >= 0 && y <= 1) onBackgroundClick({ x, y });
+  }
+
+  function zoomButton(factor: number) {
+    const { vw, vh } = geom.current;
+    zoomAt(vw / 2, vh / 2, factor);
+  }
+
+  function resetView() {
+    setView({ scale: 1, x: (size.vw - fw) / 2, y: (size.vh - fh) / 2 });
   }
 
   return (
     <div
-      className={`relative w-full select-none overflow-hidden rounded-xl border border-white/10 ${
-        onBackgroundClick ? "cursor-crosshair" : ""
+      ref={viewportRef}
+      className={`relative h-full w-full touch-none overflow-hidden rounded-xl border border-white/10 bg-slate-900 ${
+        onBackgroundClick ? "cursor-crosshair" : "cursor-grab"
       } ${className ?? ""}`}
-      style={{ aspectRatio: String(MAP_ASPECT_RATIO) }}
-      onClick={handleClick}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={onPointerUp}
+      onPointerCancel={onPointerUp}
     >
-      <img src={MAP_IMAGE_URL} alt="Galaxy map" className="absolute inset-0 h-full w-full object-cover" draggable={false} />
+      {fw > 0 && (
+        <div
+          className="absolute left-0 top-0"
+          style={{
+            width: fw,
+            height: fh,
+            transform: `translate(${view.x}px, ${view.y}px) scale(${view.scale})`,
+            transformOrigin: "0 0",
+          }}
+        >
+          <img
+            ref={imgRef}
+            src={MAP_IMAGE_URL}
+            alt="Galaxy map"
+            draggable={false}
+            onLoad={(e) => {
+              const { naturalWidth, naturalHeight } = e.currentTarget;
+              if (naturalWidth > 0 && naturalHeight > 0) setAspect(naturalWidth / naturalHeight);
+            }}
+            className="block h-full w-full object-cover"
+          />
 
-      {connections.length > 0 && (
-        <svg className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-          {connections.map(([a, b], i) => (
-            <line
-              key={i}
-              x1={a.x * 100}
-              y1={a.y * 100}
-              x2={b.x * 100}
-              y2={b.y * 100}
-              stroke="white"
-              strokeWidth={0.4}
-              strokeDasharray="1.5 1.5"
-              opacity={0.7}
-            />
+          {connections.length > 0 && (
+            <svg className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+              {connections.map(([a, b], i) => (
+                <line
+                  key={i}
+                  x1={a.x * 100}
+                  y1={a.y * 100}
+                  x2={b.x * 100}
+                  y2={b.y * 100}
+                  stroke="white"
+                  strokeWidth={2}
+                  strokeDasharray="6 6"
+                  vectorEffect="non-scaling-stroke"
+                  opacity={0.7}
+                />
+              ))}
+            </svg>
+          )}
+
+          {markers.map((m) => (
+            <div key={m.id} className="absolute" style={{ left: `${m.point.x * 100}%`, top: `${m.point.y * 100}%` }}>
+              <div
+                className="absolute flex flex-col items-center"
+                style={{ transform: `translate(-50%, -50%) scale(${1 / view.scale})`, transformOrigin: "center" }}
+              >
+                <button
+                  type="button"
+                  aria-label={m.label ?? m.variant}
+                  onPointerDown={(e) => e.stopPropagation()}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    m.onClick?.();
+                  }}
+                  className={`block h-3.5 w-3.5 rounded-full ring-2 shadow transition ${VARIANT_STYLE[m.variant]} ${
+                    m.onClick ? "cursor-pointer hover:scale-125" : "cursor-default"
+                  }`}
+                />
+                {m.label && (
+                  <span className="mt-1 whitespace-nowrap rounded bg-black/70 px-1.5 py-0.5 text-xs text-white">
+                    {m.label}
+                  </span>
+                )}
+              </div>
+            </div>
           ))}
-        </svg>
+        </div>
       )}
 
-      {markers.map((m) => (
-        <div key={m.id} className="absolute -translate-x-1/2 -translate-y-1/2" style={pct(m.point)}>
-          <button
-            type="button"
-            aria-label={m.label ?? m.variant}
-            onClick={(e) => {
-              e.stopPropagation();
-              m.onClick?.();
-            }}
-            className={`block h-3.5 w-3.5 rounded-full ring-2 ${VARIANT_STYLE[m.variant]} ${
-              m.onClick ? "cursor-pointer hover:scale-125" : "cursor-default"
-            } shadow transition`}
-          />
-          {m.label && (
-            <span className="pointer-events-none absolute left-1/2 top-4 -translate-x-1/2 whitespace-nowrap rounded bg-black/70 px-1.5 py-0.5 text-xs text-white">
-              {m.label}
-            </span>
-          )}
-        </div>
-      ))}
+      {/* Zoom controls. stopPropagation on pointer-down so the viewport doesn't
+          capture the pointer (which would swallow the button click). */}
+      <div
+        className="absolute bottom-2 right-2 flex flex-col overflow-hidden rounded-lg border border-white/10 bg-slate-900/80 text-slate-100 backdrop-blur"
+        onPointerDown={(e) => e.stopPropagation()}
+      >
+        <button type="button" onClick={() => zoomButton(1.3)} className="px-3 py-1.5 text-lg leading-none hover:bg-white/10" aria-label="Zoom in">
+          +
+        </button>
+        <button type="button" onClick={() => zoomButton(1 / 1.3)} className="border-t border-white/10 px-3 py-1.5 text-lg leading-none hover:bg-white/10" aria-label="Zoom out">
+          −
+        </button>
+        <button type="button" onClick={resetView} className="border-t border-white/10 px-3 py-1.5 text-xs leading-none hover:bg-white/10" aria-label="Reset view">
+          ⟲
+        </button>
+      </div>
     </div>
   );
-}
-
-/** Convenience wrapper so callers can pass children overlays if needed later. */
-export function MapFrame({ children }: { children: ReactNode }) {
-  return <div className="mx-auto w-full max-w-5xl">{children}</div>;
 }

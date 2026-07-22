@@ -4,13 +4,14 @@ import { MAX_GAME_SCORE, MAX_ROUND_SCORE } from "../game/scoring";
 interface ResultsViewProps {
   session: GameSession;
   onPlayAgain: () => void;
+  onChangeSettings: () => void;
 }
 
 /** Final scoreboard shown once all rounds are done. */
-export function ResultsView({ session, onPlayAgain }: ResultsViewProps) {
+export function ResultsView({ session, onPlayAgain, onChangeSettings }: ResultsViewProps) {
   const max = session.rounds.length * MAX_ROUND_SCORE;
   return (
-    <div className="mx-auto flex w-full max-w-2xl flex-col items-center gap-6 px-4 py-10">
+    <div className="mx-auto flex h-full w-full max-w-2xl flex-col items-center gap-6 overflow-y-auto px-4 py-10">
       <div className="text-center">
         <p className="text-sm uppercase tracking-widest text-slate-400">Final score</p>
         <p className="text-5xl font-bold text-white">
@@ -37,13 +38,22 @@ export function ResultsView({ session, onPlayAgain }: ResultsViewProps) {
         ))}
       </ul>
 
-      <button
-        type="button"
-        onClick={onPlayAgain}
-        className="rounded-lg bg-indigo-500 px-6 py-3 font-semibold text-white transition hover:bg-indigo-400"
-      >
-        Play again
-      </button>
+      <div className="flex flex-col items-center gap-2">
+        <button
+          type="button"
+          onClick={onPlayAgain}
+          className="rounded-lg bg-indigo-500 px-6 py-3 font-semibold text-white transition hover:bg-indigo-400"
+        >
+          Play again
+        </button>
+        <button
+          type="button"
+          onClick={onChangeSettings}
+          className="text-sm text-slate-500 underline hover:text-slate-300"
+        >
+          Change timer
+        </button>
+      </div>
     </div>
   );
 }
