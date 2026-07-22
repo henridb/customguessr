@@ -1,26 +1,5 @@
 [
   {
-    "id": "proxima-centauri",
-    "name": "Proxima Centauri",
-    "type": "star",
-    "x": 0.44,
-    "y": 0.63
-  },
-  {
-    "id": "vega",
-    "name": "Vega",
-    "type": "star",
-    "x": 0.66,
-    "y": 0.71
-  },
-  {
-    "id": "trappist-1e",
-    "name": "TRAPPIST-1e",
-    "type": "planet",
-    "x": 0.19,
-    "y": 0.81
-  },
-  {
     "id": "362f6351-998f-4131-a69a-26b6fef6a31d",
     "name": "Amlersagarm",
     "type": "planet",
@@ -186,13 +165,6 @@
     "y": 0.3518593126847419
   },
   {
-    "id": "8cd7e011-cf19-4f4e-b41b-d3bba10ded9e",
-    "name": "Xalaso",
-    "type": "planet",
-    "x": 0.27490916015563377,
-    "y": 0.33615779138701346
-  },
-  {
     "id": "4758868d-f604-480b-a5c6-716a5bbdc002",
     "name": "Alle",
     "type": "planet",
@@ -226,5 +198,300 @@
     "type": "planet",
     "x": 0.34393184551211997,
     "y": 0.27335176961591945
+  },
+  {
+    "id": "96af1372-cd62-43c5-878d-2a46c4ec4595",
+    "name": "Benj",
+    "type": "planet",
+    "x": 0.3623265063690293,
+    "y": 0.29427560550123694
+  },
+  {
+    "id": "38a8f861-b34e-488d-9610-64f0ff202589",
+    "name": "Sie",
+    "type": "planet",
+    "x": 0.3899999377621083,
+    "y": 0.29541068974963147
+  },
+  {
+    "id": "fc4d61d7-3399-4693-90c3-bc432dd788e8",
+    "name": "Tarradas",
+    "type": "planet",
+    "x": 0.36653768460281927,
+    "y": 0.3073289834284091
+  },
+  {
+    "id": "adef6287-5327-4702-a7d0-8263a40531e3",
+    "name": "Xalaso",
+    "type": "planet",
+    "x": 0.2648679163227518,
+    "y": 0.34194878021634745
+  },
+  {
+    "id": "1f7ff14b-c130-450b-87f8-e86f6c9381e1",
+    "name": "Salemi",
+    "type": "planet",
+    "x": 0.3280355209823761,
+    "y": 0.32265250387255173
+  },
+  {
+    "id": "5b7f3ca7-dbb0-41a8-bc8d-e7adb83521f7",
+    "name": "Egnee I",
+    "type": "planet",
+    "x": 0.3845855716484262,
+    "y": 0.3237875881209462
+  },
+  {
+    "id": "00cf635d-9c98-4d51-b8a7-a574351a2f5f",
+    "name": "Gana",
+    "type": "planet",
+    "x": 0.45557395948985197,
+    "y": 0.30562636355077194
+  },
+  {
+    "id": "cd889c00-9f83-4544-93bf-df995f7ab930",
+    "name": "Dirodima",
+    "type": "planet",
+    "x": 0.5121239826170119,
+    "y": 0.3033562210338014
+  },
+  {
+    "id": "6d68dbec-9264-4dd9-8854-2f40dfb8206b",
+    "name": "Saal",
+    "type": "planet",
+    "x": 0.525960705198274,
+    "y": 0.2840599446900057
+  },
+  {
+    "id": "cc6bca92-06b0-4d86-a3a1-12b6ad137f24",
+    "name": "Warffel",
+    "type": "planet",
+    "x": 0.5295702826073954,
+    "y": 0.26249350634437557
+  },
+  {
+    "id": "a6d32bae-3b81-453b-b61d-7132029841e7",
+    "name": "Terminas",
+    "type": "planet",
+    "x": 0.6017618445592682,
+    "y": 0.24887259928291544
+  },
+  {
+    "id": "09054154-211a-4016-870b-d451b93c10ed",
+    "name": "Gler-To",
+    "type": "planet",
+    "x": 0.5638612817634936,
+    "y": 0.2545479945450695
+  },
+  {
+    "id": "1e946da1-bcd5-4b73-a51b-2200c69f409d",
+    "name": "Berngles",
+    "type": "planet",
+    "x": 0.5939411026858019,
+    "y": 0.2676013464924231
+  },
+  {
+    "id": "2f49dc20-8972-45ec-be53-1bda919ac77c",
+    "name": "N'Rassel",
+    "type": "planet",
+    "x": 0.6336464817250272,
+    "y": 0.23014385207340773
+  },
+  {
+    "id": "e06b019b-9361-4e88-a2d6-dad0b9cd1bdd",
+    "name": "Vaala",
+    "type": "planet",
+    "x": 0.6541007169915283,
+    "y": 0.21141510486390006
+  },
+  {
+    "id": "cbe8ffb3-ebd0-484b-8f6c-a25b0cfcc218",
+    "name": "La Fera dell'Amiga",
+    "type": "planet",
+    "x": 0.3611233597974724,
+    "y": 0.23241402057019675
+  },
+  {
+    "id": "f298446e-2242-43d1-879a-611eebb51f7a",
+    "name": "Scales",
+    "type": "planet",
+    "x": 0.3845856129567614,
+    "y": 0.2556830463186909
+  },
+  {
+    "id": "40bb45c0-5d45-407c-a585-0bc08c954d76",
+    "name": "Lutes III",
+    "type": "planet",
+    "x": 0.399023922593247,
+    "y": 0.2670338108631805
+  },
+  {
+    "id": "8531f25c-a414-4fe8-9d1c-50fbfaee310d",
+    "name": "Paldum",
+    "type": "planet",
+    "x": 0.4393308611488057,
+    "y": 0.2812222470589287
+  },
+  {
+    "id": "dec41243-2675-4c14-9378-eb7ddb4213cd",
+    "name": "Baslet",
+    "type": "planet",
+    "x": 0.4615899401976477,
+    "y": 0.26135841560102646
+  },
+  {
+    "id": "79d3a2d7-78cb-4c57-b4a9-041e6030bb9c",
+    "name": "Quedor",
+    "type": "planet",
+    "x": 0.4778330247692489,
+    "y": 0.2443322817742013
+  },
+  {
+    "id": "60728311-eda6-4f23-ab13-059db03ee207",
+    "name": "Halft",
+    "type": "planet",
+    "x": 0.4976857142888616,
+    "y": 0.25852075044472256,
+    "description": "Seat of house Vareno."
+  },
+  {
+    "id": "f8ef7e6e-177e-48ea-b372-598709fc6123",
+    "name": "Kvinall",
+    "type": "planet",
+    "x": 0.5223511415585976,
+    "y": 0.2267386253080427
+  },
+  {
+    "id": "5284e434-36dc-43d2-aa8f-9321c68839f6",
+    "name": "Verdes",
+    "type": "planet",
+    "x": 0.5307734980261776,
+    "y": 0.23695430560413783
+  },
+  {
+    "id": "d4617320-9d16-49c9-8001-248c7c6bf294",
+    "name": "Oxosst",
+    "type": "planet",
+    "x": 0.618606557494428,
+    "y": 0.30846406767680357
+  },
+  {
+    "id": "13a6eabd-977a-42fa-bd6c-883a1198a764",
+    "name": "Parades",
+    "type": "planet",
+    "x": 0.6462800026569521,
+    "y": 0.29030287558140233
+  },
+  {
+    "id": "c351a10b-8098-43ff-a627-277366931ac1",
+    "name": "Bayro",
+    "type": "planet",
+    "x": 0.7413734709411897,
+    "y": 0.3112597750417862
+  },
+  {
+    "id": "fc55f6ce-8afa-4976-b388-bae975571541",
+    "name": "Weigo",
+    "type": "planet",
+    "x": 0.7947199505182846,
+    "y": 0.29262038668312174
+  },
+  {
+    "id": "b7020f42-3789-4ca5-8d18-51007f160194",
+    "name": "Lieniis",
+    "type": "planet",
+    "x": 0.7802307631269086,
+    "y": 0.2646613041451251
+  },
+  {
+    "id": "0437d157-751f-4b7d-a363-bbeb5a45c5d6",
+    "name": "Ramlast",
+    "type": "planet",
+    "x": 0.7947199505182846,
+    "y": 0.23856616044299492
+  },
+  {
+    "id": "df2c8fde-43bf-45a7-a5c5-c2131c1aeaf0",
+    "name": "Nimmlersagarm",
+    "type": "planet",
+    "x": 0.7611314263401137,
+    "y": 0.14474791340727655,
+    "description": "(Nimmler's Arm)"
+  },
+  {
+    "id": "dad13ae2-847e-4450-be5e-ca9b7e012da2",
+    "name": "Jameris",
+    "type": "planet",
+    "x": 0.7650830174198985,
+    "y": 0.17457093478113964,
+    "description": "Confederated planet."
+  },
+  {
+    "id": "a5fc65c2-ffa8-41d4-8c0b-96e2534c540a",
+    "name": "Ekresh",
+    "type": "planet",
+    "x": 0.7538868326444258,
+    "y": 0.18575456779633828,
+    "description": "Confederated planet; seat of house Ventris."
+  },
+  {
+    "id": "bea77fd1-2819-4e10-9dbb-c39cd47a018c",
+    "name": "Qiina",
+    "type": "planet",
+    "x": 0.7637658103438878,
+    "y": 0.19631686890528177
+  },
+  {
+    "id": "9db2c94b-db18-4747-9418-086ca4fc0d8b",
+    "name": "Krenn",
+    "type": "planet",
+    "x": 0.7413734709411897,
+    "y": 0.21682019609981265,
+    "description": "Royal planet; a major power."
+  },
+  {
+    "id": "9a571813-aab4-44b4-9fe9-a3464ea0cd2c",
+    "name": "Xerenho",
+    "type": "planet",
+    "x": 0.7558626281843182,
+    "y": 0.2211694056778007,
+    "description": "Confederated planet, seat of house Xerain, then of house Kreor-Labdaide."
+  },
+  {
+    "id": "e4414e03-59eb-4342-8f76-8d22354870d5",
+    "name": "Aarmest",
+    "type": "planet",
+    "x": 0.7268843136980612,
+    "y": 0.23608091636473225,
+    "description": "Formerly confederated planet."
+  },
+  {
+    "id": "3011dba3-63a9-4656-be84-091376e9b25a",
+    "name": "Jesi",
+    "type": "planet",
+    "x": 0.6722206270449557,
+    "y": 0.23732352329434353
+  },
+  {
+    "id": "dcae652d-9c9d-4f27-b28e-bccf29f31ec3",
+    "name": "Jilveen",
+    "type": "planet",
+    "x": 0.730177286165717,
+    "y": 0.205636563084614,
+    "description": "Confederated planet, seat of house Auxdel."
+  },
+  {
+    "id": "48a88492-79f5-498e-8e2f-d386e2eb1d4f",
+    "name": "Ajikoj",
+    "type": "planet",
+    "x": 0.6603658538056012,
+    "y": 0.25347766935233584
+  },
+  {
+    "id": "cb94eb7f-a7f6-43bf-a430-ebc6e13577ce",
+    "name": "Udenn Kal",
+    "type": "planet",
+    "x": 0.6748550110487297,
+    "y": 0.27087442233993947
   }
 ]
