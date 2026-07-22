@@ -14,7 +14,13 @@ function clamp01(n: number): number {
 }
 
 /** Create/edit dialog for a single planet or star. */
-export function BodyModal({ mode, initial, onSave, onDelete, onClose }: BodyModalProps) {
+export function BodyModal({
+  mode,
+  initial,
+  onSave,
+  onDelete,
+  onClose,
+}: BodyModalProps) {
   const [name, setName] = useState(initial.name);
   const [type, setType] = useState<BodyType>(initial.type);
   const [description, setDescription] = useState(initial.description ?? "");
@@ -40,14 +46,14 @@ export function BodyModal({ mode, initial, onSave, onDelete, onClose }: BodyModa
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
+      className="z-50 fixed inset-0 flex justify-center items-center bg-black/60 p-4"
       onClick={onClose}
     >
       <div
-        className="w-full max-w-md rounded-xl border border-white/10 bg-slate-900 p-6 text-slate-100 shadow-xl"
+        className="bg-slate-900 shadow-xl p-6 border border-white/10 rounded-xl w-full max-w-md text-slate-100"
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="mb-4 text-lg font-semibold">
+        <h2 className="mb-4 font-semibold text-lg">
           {mode === "create" ? "New body" : `Edit ${initial.name}`}
         </h2>
 
@@ -58,7 +64,7 @@ export function BodyModal({ mode, initial, onSave, onDelete, onClose }: BodyModa
               value={name}
               onChange={(e) => setName(e.target.value)}
               autoFocus
-              className="rounded border border-white/10 bg-slate-800 px-3 py-2 outline-none focus:border-indigo-400"
+              className="bg-slate-800 px-3 py-2 border border-white/10 focus:border-indigo-400 rounded outline-none"
             />
           </label>
 
@@ -67,7 +73,7 @@ export function BodyModal({ mode, initial, onSave, onDelete, onClose }: BodyModa
             <select
               value={type}
               onChange={(e) => setType(e.target.value as BodyType)}
-              className="rounded border border-white/10 bg-slate-800 px-3 py-2 outline-none focus:border-indigo-400"
+              className="bg-slate-800 px-3 py-2 border border-white/10 focus:border-indigo-400 rounded outline-none cursor-pointer"
             >
               <option value="planet">Planet</option>
               <option value="star">Star</option>
@@ -80,11 +86,11 @@ export function BodyModal({ mode, initial, onSave, onDelete, onClose }: BodyModa
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               rows={2}
-              className="resize-none rounded border border-white/10 bg-slate-800 px-3 py-2 outline-none focus:border-indigo-400"
+              className="bg-slate-800 px-3 py-2 border border-white/10 focus:border-indigo-400 rounded outline-none resize-none"
             />
           </label>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="gap-3 grid grid-cols-2">
             <label className="flex flex-col gap-1 text-sm">
               <span className="text-slate-400">X (0–1)</span>
               <input
@@ -94,7 +100,7 @@ export function BodyModal({ mode, initial, onSave, onDelete, onClose }: BodyModa
                 max={1}
                 value={x}
                 onChange={(e) => setX(Number(e.target.value))}
-                className="rounded border border-white/10 bg-slate-800 px-3 py-2 outline-none focus:border-indigo-400"
+                className="bg-slate-800 px-3 py-2 border border-white/10 focus:border-indigo-400 rounded outline-none"
               />
             </label>
             <label className="flex flex-col gap-1 text-sm">
@@ -106,20 +112,20 @@ export function BodyModal({ mode, initial, onSave, onDelete, onClose }: BodyModa
                 max={1}
                 value={y}
                 onChange={(e) => setY(Number(e.target.value))}
-                className="rounded border border-white/10 bg-slate-800 px-3 py-2 outline-none focus:border-indigo-400"
+                className="bg-slate-800 px-3 py-2 border border-white/10 focus:border-indigo-400 rounded outline-none"
               />
             </label>
           </div>
 
-          {error && <p className="text-sm text-rose-400">{error}</p>}
+          {error && <p className="text-rose-400 text-sm">{error}</p>}
         </div>
 
-        <div className="mt-6 flex items-center justify-between">
+        <div className="flex justify-between items-center mt-6">
           {mode === "edit" && onDelete ? (
             <button
               type="button"
               onClick={onDelete}
-              className="rounded-lg px-4 py-2 text-sm font-semibold text-rose-400 transition hover:bg-rose-500/10"
+              className="hover:bg-rose-500/10 px-4 py-2 rounded-lg font-semibold text-rose-400 text-sm transition cursor-pointer"
             >
               Delete
             </button>
@@ -130,14 +136,14 @@ export function BodyModal({ mode, initial, onSave, onDelete, onClose }: BodyModa
             <button
               type="button"
               onClick={onClose}
-              className="rounded-lg px-4 py-2 text-sm font-semibold text-slate-300 transition hover:bg-white/5"
+              className="hover:bg-white/5 px-4 py-2 rounded-lg font-semibold text-slate-300 text-sm transition cursor-pointer"
             >
               Cancel
             </button>
             <button
               type="button"
               onClick={handleSave}
-              className="rounded-lg bg-indigo-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-indigo-400"
+              className="bg-indigo-500 hover:bg-indigo-400 px-4 py-2 rounded-lg font-semibold text-white text-sm transition cursor-pointer"
             >
               Save
             </button>

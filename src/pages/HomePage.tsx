@@ -27,7 +27,7 @@ export function HomePage() {
   }
 
   return (
-    <main className="h-screen overflow-hidden bg-slate-950 text-slate-100">
+    <main className="bg-slate-950 h-screen overflow-hidden text-slate-100">
       {content}
     </main>
   );
@@ -49,21 +49,21 @@ function Landing({
   const [seconds, setSeconds] = useState(DEFAULT_SECONDS_PER_ROUND);
 
   return (
-    <div className="flex h-full flex-col items-center justify-center gap-6 px-4">
-      <h1 className="text-4xl font-bold tracking-tight">GalaxyGuessr</h1>
+    <div className="flex flex-col justify-center items-center gap-6 px-4 h-full">
+      <h1 className="font-bold text-4xl tracking-tight">GalaxyGuessr</h1>
       <p className="text-slate-400">
         Guess where each celestial body sits in the galaxy.
       </p>
 
       <div className="flex flex-col items-center gap-2">
-        <span className="text-sm text-slate-400">Time per round</span>
+        <span className="text-slate-400 text-sm">Time per round</span>
         <div className="flex items-center gap-2">
           {TIMER_PRESETS.map((p) => (
             <button
               key={p.seconds}
               type="button"
               onClick={() => setSeconds(p.seconds)}
-              className={`rounded-lg px-3 py-1.5 text-sm font-semibold transition ${
+              className={`rounded-lg px-3 py-1.5 text-sm font-semibold transition cursor-pointer ${
                 seconds === p.seconds
                   ? "bg-indigo-500 text-white"
                   : "bg-white/5 text-slate-300 hover:bg-white/10"
@@ -72,7 +72,7 @@ function Landing({
               {p.label}
             </button>
           ))}
-          <label className="flex items-center gap-1 text-sm text-slate-400">
+          <label className="flex items-center gap-1 text-slate-400 text-sm">
             <input
               type="number"
               min={1}
@@ -83,7 +83,7 @@ function Landing({
                   Math.min(600, Math.max(5, Number(e.target.value) || 0)),
                 )
               }
-              className="w-20 rounded border border-white/10 bg-slate-800 px-2 py-1.5 text-slate-100 outline-none focus:border-indigo-400"
+              className="bg-slate-800 px-2 py-1.5 border border-white/10 focus:border-indigo-400 rounded outline-none w-20 text-slate-100"
             />
             <span>sec</span>
           </label>
@@ -93,13 +93,13 @@ function Landing({
       <button
         type="button"
         onClick={() => onNewGame(seconds)}
-        className="rounded-lg bg-indigo-500 px-8 py-3 text-lg font-semibold text-white transition hover:bg-indigo-400"
+        className="bg-indigo-500 hover:bg-indigo-400 px-8 py-3 rounded-lg font-semibold text-white text-lg transition cursor-pointer"
       >
         New Game
       </button>
       <Link
         to="/admin"
-        className="text-sm text-slate-500 underline hover:text-slate-300"
+        className="text-slate-500 hover:text-slate-300 text-sm underline"
       >
         Admin
       </Link>

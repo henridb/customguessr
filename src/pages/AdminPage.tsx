@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import type { Body, Point } from "../types";
-import { bodies as seedBodies } from "../data/bodies";
-import { MapView, type MapMarker } from "../components/MapView";
 import { BodyModal } from "../admin/BodyModal";
 import { checkPassword } from "../admin/auth";
 import { exportBodies } from "../admin/exportJson";
+import { MapView, type MapMarker } from "../components/MapView";
+import { bodies as seedBodies } from "../data/bodies";
+import type { Body, Point } from "../types";
 
 interface EditorState {
   mode: "create" | "edit";
@@ -16,7 +16,7 @@ export function AdminPage() {
   const [authed, setAuthed] = useState(false);
 
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-100">
+    <main className="bg-slate-950 min-h-screen text-slate-100">
       {authed ? <Editor /> : <PasswordGate onSuccess={() => setAuthed(true)} />}
     </main>
   );
@@ -36,8 +36,8 @@ function PasswordGate({ onSuccess }: { onSuccess: () => void }) {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center gap-4">
-      <h1 className="text-2xl font-bold">Admin</h1>
+    <div className="flex flex-col justify-center items-center gap-4 min-h-screen">
+      <h1 className="font-bold text-2xl">Admin</h1>
       <form onSubmit={submit} className="flex flex-col items-center gap-3">
         <input
           type="password"
@@ -48,17 +48,20 @@ function PasswordGate({ onSuccess }: { onSuccess: () => void }) {
           }}
           placeholder="Password"
           autoFocus
-          className="rounded border border-white/10 bg-slate-800 px-3 py-2 outline-none focus:border-indigo-400"
+          className="bg-slate-800 px-3 py-2 border border-white/10 focus:border-indigo-400 rounded outline-none"
         />
-        {error && <p className="text-sm text-rose-400">Incorrect password.</p>}
+        {error && <p className="text-rose-400 text-sm">Incorrect password.</p>}
         <button
           type="submit"
-          className="rounded-lg bg-indigo-500 px-6 py-2 font-semibold text-white transition hover:bg-indigo-400"
+          className="bg-indigo-500 hover:bg-indigo-400 px-6 py-2 rounded-lg font-semibold text-white transition cursor-pointer"
         >
           Enter
         </button>
       </form>
-      <Link to="/" className="text-sm text-slate-500 underline hover:text-slate-300">
+      <Link
+        to="/"
+        className="text-slate-500 hover:text-slate-300 text-sm underline"
+      >
         Back to game
       </Link>
     </div>
@@ -72,7 +75,13 @@ function Editor() {
   function openCreate(point: Point) {
     setEditor({
       mode: "create",
-      body: { id: crypto.randomUUID(), name: "", type: "planet", x: point.x, y: point.y },
+      body: {
+        id: crypto.randomUUID(),
+        name: "",
+        type: "planet",
+        x: point.x,
+        y: point.y,
+      },
     });
   }
 
@@ -83,7 +92,9 @@ function Editor() {
   function handleSave(body: Body) {
     setBodies((prev) => {
       const exists = prev.some((b) => b.id === body.id);
-      return exists ? prev.map((b) => (b.id === body.id ? body : b)) : [...prev, body];
+      return exists
+        ? prev.map((b) => (b.id === body.id ? body : b))
+        : [...prev, body];
     });
     setEditor(null);
   }
@@ -104,11 +115,11 @@ function Editor() {
   }));
 
   return (
-    <div className="mx-auto flex h-screen w-full max-w-5xl flex-col gap-4 px-4 py-6">
-      <header className="flex shrink-0 flex-wrap items-center justify-between gap-3">
+    <div className="flex flex-col gap-4 mx-auto px-4 py-6 w-full max-w-5xl h-screen">
+      <header className="flex flex-wrap justify-between items-center gap-3 shrink-0">
         <div>
-          <h1 className="text-2xl font-bold">Admin editor</h1>
-          <p className="text-sm text-slate-400">
+          <h1 className="font-bold text-2xl">Admin editor</h1>
+          <p className="text-slate-400 text-sm">
             {bodies.length} bodies · click empty space to add, a marker to edit.
           </p>
         </div>
@@ -116,23 +127,30 @@ function Editor() {
           <button
             type="button"
             onClick={() => exportBodies(bodies)}
-            className="rounded-lg bg-emerald-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-400"
+            className="bg-emerald-500 hover:bg-emerald-400 px-4 py-2 rounded-lg font-semibold text-white text-sm transition cursor-pointer"
           >
             Export planets.json
           </button>
-          <Link to="/" className="text-sm text-slate-500 underline hover:text-slate-300">
+          <Link
+            to="/"
+            className="text-slate-500 hover:text-slate-300 text-sm underline"
+          >
             Back to game
           </Link>
         </div>
       </header>
 
-      <div className="min-h-0 flex-1">
+      <div className="flex-1 min-h-0">
         <MapView markers={markers} onBackgroundClick={openCreate} />
       </div>
 
-      <p className="shrink-0 text-xs text-slate-500">
-        Changes live only in this browser session. Use “Export planets.json”, then commit the file over
-        <code className="mx-1 rounded bg-white/10 px-1">src/data/planets.json</code> to publish.
+      <p className="text-slate-500 text-xs shrink-0">
+        Changes live only in this browser session. Use “Export planets.json”,
+        then commit the file over
+        <code className="bg-white/10 mx-1 px-1 rounded">
+          src/data/planets.json
+        </code>{" "}
+        to publish.
       </p>
 
       {editor && (
