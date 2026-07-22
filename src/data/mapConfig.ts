@@ -1,4 +1,4 @@
-import galaxyUrl from "../assets/galaxy.svg";
+import galaxyUrl from "../assets/galaxy.png";
 
 // Single source of truth for the map image. To swap in the real galaxy image
 // later, drop the file into src/assets/ and change this one import (Vite handles
