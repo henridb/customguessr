@@ -1,35 +1,5 @@
 [
   {
-    "id": "sol",
-    "name": "Sol",
-    "type": "star",
-    "x": 0.5,
-    "y": 0.5,
-    "description": "The home star at the heart of the map."
-  },
-  {
-    "id": "terra",
-    "name": "Terra",
-    "type": "planet",
-    "x": 0.52,
-    "y": 0.47,
-    "description": "A pale blue dot near Sol."
-  },
-  {
-    "id": "kepler-22b",
-    "name": "Kepler-22b",
-    "type": "planet",
-    "x": 0.31,
-    "y": 0.34
-  },
-  {
-    "id": "betelgeuse",
-    "name": "Betelgeuse",
-    "type": "star",
-    "x": 0.73,
-    "y": 0.24
-  },
-  {
     "id": "proxima-centauri",
     "name": "Proxima Centauri",
     "type": "star",
@@ -51,11 +21,210 @@
     "y": 0.81
   },
   {
-    "id": "8df5aa0f-2546-4861-a9d9-68bfc8ca4427",
-    "name": "coucou",
+    "id": "362f6351-998f-4131-a69a-26b6fef6a31d",
+    "name": "Amlersagarm",
     "type": "planet",
-    "x": 0.5453629032258065,
-    "y": 0.29930555008645554,
-    "description": "hop"
+    "x": 0.24908796977690065,
+    "y": 0.37239363193511965,
+    "description": "Amler's Arm"
+  },
+  {
+    "id": "068f0846-5c13-4014-ac16-7784828d1c9b",
+    "name": "Aaste",
+    "type": "planet",
+    "x": 0.24797918892771173,
+    "y": 0.3589300927434939,
+    "description": "Richest planet in the Heavenly Lands."
+  },
+  {
+    "id": "3e0069e2-5e5e-4feb-a3ff-747e3078595d",
+    "name": "Lemmern",
+    "type": "planet",
+    "x": 0.29644340545143366,
+    "y": 0.3555359924100747
+  },
+  {
+    "id": "54eb24c3-2990-458a-a276-4c643adc343d",
+    "name": "Fu Mage",
+    "type": "planet",
+    "x": 0.4023805193295688,
+    "y": 0.4116292068448968
+  },
+  {
+    "id": "de09d43e-ce88-4fb7-8d02-d44bf63482ae",
+    "name": "Siltos",
+    "type": "planet",
+    "x": 0.35759875262752006,
+    "y": 0.39473058748949413
+  },
+  {
+    "id": "4ef8122a-10aa-4447-92b5-fcf93d3cf2e3",
+    "name": "Luknun",
+    "type": "planet",
+    "x": 0.4880256808182734,
+    "y": 0.4158538435535044
+  },
+  {
+    "id": "4ebd003f-58db-4ab2-b042-a7b804801396",
+    "name": "Manncshaff system",
+    "type": "planet",
+    "x": 0.5084573653994302,
+    "y": 0.4390894300586472
+  },
+  {
+    "id": "c0416cb2-ac78-4f5d-bc96-662287e85b54",
+    "name": "Cavlexy system",
+    "type": "planet",
+    "x": 0.5677932459973752,
+    "y": 0.4282637410804039
+  },
+  {
+    "id": "450841ce-bc3b-44b9-9930-a93ff01c1342",
+    "name": "Staast",
+    "type": "planet",
+    "x": 0.5826272289590326,
+    "y": 0.4076685585615552
+  },
+  {
+    "id": "8b05ba09-4ec1-4149-a3a9-ece54131c05b",
+    "name": "Altede",
+    "type": "planet",
+    "x": 0.5370057781866739,
+    "y": 0.40317986090670943
+  },
+  {
+    "id": "d8cc2438-cd06-4296-9932-e8e71ac61812",
+    "name": "Zangelne",
+    "type": "planet",
+    "x": 0.6551268766319429,
+    "y": 0.3829687615959298
+  },
+  {
+    "id": "6c932099-5383-41a2-ac3a-0f3889406834",
+    "name": "Igente",
+    "type": "planet",
+    "x": 0.6941118067609119,
+    "y": 0.35819999302526295
+  },
+  {
+    "id": "7b275c8d-d965-48db-b95c-5a397753db4e",
+    "name": "Mariae",
+    "type": "planet",
+    "x": 0.7020679417081839,
+    "y": 0.3702090814855434
+  },
+  {
+    "id": "9a3b47bd-8a8f-4b4c-9b2c-f12cd2b6e2a5",
+    "name": "Asjotek Bracas IV",
+    "type": "planet",
+    "x": 0.5007783175491897,
+    "y": 0.32517495681160374,
+    "description": "Capital of the Heavenly Lands."
+  },
+  {
+    "id": "d7494c8e-5c44-4f50-913e-e9b4825f4de2",
+    "name": "Xelexo",
+    "type": "planet",
+    "x": 0.565222813953097,
+    "y": 0.3814676126540283
+  },
+  {
+    "id": "472b56c6-8ebe-4d16-8abd-c2dcf6ca0e6e",
+    "name": "Laezitopia",
+    "type": "planet",
+    "x": 0.5206686184971852,
+    "y": 0.3424380493893841
+  },
+  {
+    "id": "c3863fef-6b73-4416-b9bf-bba1c2e248ea",
+    "name": "Thaler",
+    "type": "planet",
+    "x": 0.4702860093352375,
+    "y": 0.3348958492279053
+  },
+  {
+    "id": "ec4262ed-2998-48e4-bb6d-89ab510d8dc5",
+    "name": "Yrat",
+    "type": "planet",
+    "x": 0.4638648878209265,
+    "y": 0.3532447397910156,
+    "description": "Ocean planet."
+  },
+  {
+    "id": "0bbf9dd3-1f41-4bb9-ae4d-d82245d709d2",
+    "name": "Icher",
+    "type": "planet",
+    "x": 0.4912781379880048,
+    "y": 0.3703316670550778
+  },
+  {
+    "id": "f57821c7-ddc2-40f4-b5d9-fb127bf015f0",
+    "name": "Vän de",
+    "type": "planet",
+    "x": 0.4281297237256876,
+    "y": 0.36986986506629993
+  },
+  {
+    "id": "963c6061-0c83-4543-baf7-10d984df5cc6",
+    "name": "Igare",
+    "type": "planet",
+    "x": 0.4467315896600782,
+    "y": 0.38603316721286635
+  },
+  {
+    "id": "804bcf5d-f6cf-4248-a710-5e6580a4b4ec",
+    "name": "Veigen",
+    "type": "planet",
+    "x": 0.3801565247290177,
+    "y": 0.3744879483738989
+  },
+  {
+    "id": "5f73c394-b7a9-4d72-8e70-b7397f408b7d",
+    "name": "Trenome",
+    "type": "planet",
+    "x": 0.38945744649193004,
+    "y": 0.3518593126847419
+  },
+  {
+    "id": "8cd7e011-cf19-4f4e-b41b-d3bba10ded9e",
+    "name": "Xalaso",
+    "type": "planet",
+    "x": 0.27490916015563377,
+    "y": 0.33615779138701346
+  },
+  {
+    "id": "4758868d-f604-480b-a5c6-716a5bbdc002",
+    "name": "Alle",
+    "type": "planet",
+    "x": 0.2509225494530159,
+    "y": 0.31814723900545544
+  },
+  {
+    "id": "119e5314-eae6-4309-b518-80c600111a1c",
+    "name": "Aruti Usio",
+    "type": "planet",
+    "x": 0.2832310404709456,
+    "y": 0.30244573884766696
+  },
+  {
+    "id": "c680ad74-e193-492a-9d67-1d4543259e72",
+    "name": "Lor-Io",
+    "type": "planet",
+    "x": 0.3189661933619016,
+    "y": 0.28212613424233945
+  },
+  {
+    "id": "4a0a6f43-9cd6-458e-8b10-c678cd9c1a1f",
+    "name": "Fwale",
+    "type": "planet",
+    "x": 0.3351204388708664,
+    "y": 0.261806550776952
+  },
+  {
+    "id": "378f79da-f53f-47c0-8eb7-dd0dd8a99b0a",
+    "name": "Azelma",
+    "type": "planet",
+    "x": 0.34393184551211997,
+    "y": 0.27335176961591945
   }
 ]
