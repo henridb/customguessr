@@ -78,7 +78,7 @@ function Editor() {
       body: {
         id: crypto.randomUUID(),
         name: "",
-        type: "planète",
+        type: "planet",
         x: point.x,
         y: point.y,
       },
