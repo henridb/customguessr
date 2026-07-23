@@ -24,10 +24,11 @@
   },
   {
     "id": "54eb24c3-2990-458a-a276-4c643adc343d",
-    "name": "Fu Mage",
-    "type": "planet",
+    "name": "Système Mage",
+    "type": "system",
     "x": 0.4023805193295688,
-    "y": 0.4116292068448968
+    "y": 0.4116292068448968,
+    "likelihood": 1
   },
   {
     "id": "de09d43e-ce88-4fb7-8d02-d44bf63482ae",
@@ -46,16 +47,18 @@
   {
     "id": "4ebd003f-58db-4ab2-b042-a7b804801396",
     "name": "Système Manncshaff",
-    "type": "planet",
+    "type": "system",
     "x": 0.5084573653994302,
-    "y": 0.4390894300586472
+    "y": 0.4390894300586472,
+    "likelihood": 1
   },
   {
     "id": "c0416cb2-ac78-4f5d-bc96-662287e85b54",
     "name": "Système Cavlexy",
-    "type": "planet",
+    "type": "system",
     "x": 0.5677932459973752,
-    "y": 0.4282637410804039
+    "y": 0.4282637410804039,
+    "likelihood": 1
   },
   {
     "id": "450841ce-bc3b-44b9-9930-a93ff01c1342",
@@ -98,7 +101,8 @@
     "type": "planet",
     "x": 0.5007783175491897,
     "y": 0.32517495681160374,
-    "description": "Planète-océan, capitale des Terres paradisiaques."
+    "description": "Planète-océan, capitale des Terres paradisiaques.",
+    "likelihood": 2
   },
   {
     "id": "d7494c8e-5c44-4f50-913e-e9b4825f4de2",
@@ -113,7 +117,8 @@
     "type": "planet",
     "x": 0.5206686184971852,
     "y": 0.3424380493893841,
-    "description": "Œcuménopole."
+    "description": "Œcuménopole.",
+    "likelihood": 2
   },
   {
     "id": "c3863fef-6b73-4416-b9bf-bba1c2e248ea",
@@ -237,10 +242,11 @@
   },
   {
     "id": "5b7f3ca7-dbb0-41a8-bc8d-e7adb83521f7",
-    "name": "Egnee I",
-    "type": "planet",
+    "name": "Système Egnee",
+    "type": "system",
     "x": 0.3845855716484262,
-    "y": 0.3237875881209462
+    "y": 0.3237875881209462,
+    "likelihood": 1
   },
   {
     "id": "00cf635d-9c98-4d51-b8a7-a574351a2f5f",
@@ -450,7 +456,8 @@
     "type": "planet",
     "x": 0.7413734709411897,
     "y": 0.21682019609981265,
-    "description": "Planète royale, puissance majeure de l'Univers. Capitale universelle sous la monarchie de Krenn."
+    "description": "Planète royale, puissance majeure de l'Univers. Capitale universelle sous la monarchie de Krenn.",
+    "likelihood": 2
   },
   {
     "id": "9a571813-aab4-44b4-9fe9-a3464ea0cd2c",
@@ -782,7 +789,8 @@
     "type": "planet",
     "x": 0.8909420931860493,
     "y": 0.2111710953561167,
-    "description": "Siège des ligues geddaloriennes."
+    "description": "Siège des ligues geddaloriennes.",
+    "likelihood": 2
   },
   {
     "id": "92016322-283f-431e-a4fc-9b4ab4a0f4c4",
@@ -847,7 +855,8 @@
     "type": "planet",
     "x": 0.7338365075929263,
     "y": 0.3519073574586259,
-    "description": "Siège historique du sinétème."
+    "description": "Siège historique du sinétème.",
+    "likelihood": 2
   },
   {
     "id": "af8a0731-c9a9-46ac-8ae7-f6d9f8247ffb",
@@ -860,9 +869,10 @@
   {
     "id": "b24c8a44-522f-44ce-9d0c-1ba819c28b37",
     "name": "Soleils VI",
-    "type": "planet",
+    "type": "system",
     "x": 0.7949656880060634,
-    "y": 0.35219077032535134
+    "y": 0.35219077032535134,
+    "likelihood": 1
   },
   {
     "id": "16c1f80d-cdd4-48dc-ad37-9693cdad6109",
@@ -870,7 +880,8 @@
     "type": "planet",
     "x": 0.8183776300639848,
     "y": 0.34576560802026435,
-    "description": "Capitale des Terres premières."
+    "description": "Capitale des Terres premières.",
+    "likelihood": 2
   },
   {
     "id": "d6a4b1ad-125f-4ee5-8edd-6036c7c59450",
@@ -1102,7 +1113,8 @@
     "type": "planet",
     "x": 0.5939221328826266,
     "y": 0.7673004848764278,
-    "description": "Œcuménopole, l'une des puissances hégémoniques de l'Univers."
+    "description": "Œcuménopole, l'une des puissances hégémoniques de l'Univers.",
+    "likelihood": 2
   },
   {
     "id": "f91b7b75-68f2-499a-8520-e107ae3fbe16",
@@ -1173,7 +1185,8 @@
     "type": "planet",
     "x": 0.34209392664581867,
     "y": 0.7927545553443067,
-    "description": "Œcuménopole."
+    "description": "Œcuménopole.",
+    "likelihood": 2
   },
   {
     "id": "372c85d0-51ed-4612-9798-59c11b230c0c",
@@ -1209,14 +1222,16 @@
     "type": "planet",
     "x": 0.5212794278268461,
     "y": 0.6870222626315788,
-    "description": "Capitale des Terres étendues."
+    "description": "Capitale des Terres étendues.",
+    "likelihood": 2
   },
   {
     "id": "315f93b6-5133-4ba4-9970-f117ebfe0d16",
     "name": "Saturnas II",
-    "type": "planet",
+    "type": "star",
     "x": 0.5095182097128772,
-    "y": 0.6928962788933971
+    "y": 0.6928962788933971,
+    "likelihood": 1
   },
   {
     "id": "6e8239cd-178c-498c-abf9-166789460a23",
@@ -1295,5 +1310,273 @@
     "type": "planet",
     "x": 0.6777505436199163,
     "y": 0.6005977855381458
+  },
+  {
+    "id": "c6dc1651-fb5f-497d-9395-3f49463524bc",
+    "name": "Wolfy",
+    "type": "planet",
+    "x": 0.4215841027804975,
+    "y": 0.5802264976765119,
+    "description": "Epicentre du sinétème.",
+    "likelihood": 2
+  },
+  {
+    "id": "04c33a29-c07e-48c0-9418-8a645cc48a0c",
+    "name": "Del Dom",
+    "type": "planet",
+    "x": 0.39899416562780343,
+    "y": 0.5862858793442131,
+    "likelihood": 1
+  },
+  {
+    "id": "8667ca0b-9d66-43b0-b6cc-aaa3512e602d",
+    "name": "Faseulamin",
+    "type": "planet",
+    "x": 0.3937953911691419,
+    "y": 0.5956043431039942,
+    "likelihood": 1
+  },
+  {
+    "id": "0d16b36b-e69a-4d42-bec7-5a9a702dcc0b",
+    "name": "Zeron",
+    "type": "planet",
+    "x": 0.3688413499212571,
+    "y": 0.6039419301211645,
+    "likelihood": 1
+  },
+  {
+    "id": "a0c596cd-ecd0-4cf9-8a40-343cff608d62",
+    "name": "Barisif",
+    "type": "planet",
+    "x": 0.33452954320541545,
+    "y": 0.5911903304097563,
+    "likelihood": 1
+  },
+  {
+    "id": "1d7a1ce3-dfbb-4684-aea1-ab66d26b46d2",
+    "name": "Guiribon",
+    "type": "planet",
+    "x": 0.26122704703975375,
+    "y": 0.5916807912318914,
+    "likelihood": 1
+  },
+  {
+    "id": "b09fd041-af00-4410-9b76-abad40ac3347",
+    "name": "Lactans",
+    "type": "planet",
+    "x": 0.2508295338194731,
+    "y": 0.5975661414908752,
+    "likelihood": 1
+  },
+  {
+    "id": "7631367f-e296-4988-9f62-7ac3fb962fa9",
+    "name": "Ballienum",
+    "type": "planet",
+    "x": 0.28046246970035044,
+    "y": 0.617183968203878,
+    "likelihood": 1
+  },
+  {
+    "id": "a13b66f3-9ccc-406a-b861-9225a25d7cdb",
+    "name": "Zoeylore",
+    "type": "planet",
+    "x": 0.2991780006362641,
+    "y": 0.6269928927857942,
+    "likelihood": 1
+  },
+  {
+    "id": "7ade4ecb-4c64-46a8-be3c-a292988d65a0",
+    "name": "Usi",
+    "type": "planet",
+    "x": 0.37455999230657344,
+    "y": 0.6225788800915563,
+    "description": "Capitale des Terres mystérieuses.",
+    "likelihood": 2
+  },
+  {
+    "id": "fd289523-3e17-4538-8b76-a7e1ac21b8ae",
+    "name": "Inlaf",
+    "type": "planet",
+    "x": 0.37092086922393297,
+    "y": 0.6397444700463726,
+    "likelihood": 1
+  },
+  {
+    "id": "7d592f3f-11fc-4186-94e0-48b9186488d6",
+    "name": "Beues",
+    "type": "planet",
+    "x": 0.4041929162884367,
+    "y": 0.630916444657897,
+    "likelihood": 1
+  },
+  {
+    "id": "ec13126c-1f83-47b4-9945-7f3b865de679",
+    "name": "Système Seco",
+    "type": "system",
+    "x": 0.42342831515100515,
+    "y": 0.6127699555096401,
+    "likelihood": 1
+  },
+  {
+    "id": "0b2a144d-8814-49fb-b9b3-7f1de597351f",
+    "name": "Lorifis",
+    "type": "planet",
+    "x": 0.2679854371773939,
+    "y": 0.6426871451758646,
+    "description": "Monde d'origine d'Enipiale.",
+    "likelihood": 1
+  },
+  {
+    "id": "6febb4fa-b9fa-44bf-b0bd-550c54789c7b",
+    "name": "Uiforen",
+    "type": "planet",
+    "x": 0.2445910235075019,
+    "y": 0.6475916186922374,
+    "likelihood": 1
+  },
+  {
+    "id": "93bf322c-11e1-4b5a-a46b-c7cc4da0b4ff",
+    "name": "Taacs",
+    "type": "planet",
+    "x": 0.2591475515351061,
+    "y": 0.6623049943396968,
+    "likelihood": 1
+  },
+  {
+    "id": "6b69e0e6-870c-4c74-8c9d-353d205b653e",
+    "name": "Enzel",
+    "type": "planet",
+    "x": 0.1634903894518762,
+    "y": 0.6402349308685077,
+    "likelihood": 1
+  },
+  {
+    "id": "f90fb7de-8152-405b-ad3c-43b4208f2405",
+    "name": "Fifte",
+    "type": "planet",
+    "x": 0.1796065450574732,
+    "y": 0.6549483065159671,
+    "likelihood": 1
+  },
+  {
+    "id": "7d7358cf-7c84-42ee-9d82-275e88fda9d4",
+    "name": "Bras de Credillner",
+    "type": "planet",
+    "x": 0.1458146062682864,
+    "y": 0.7079164588468212,
+    "description": "L'un des sept bras de l'Univers.",
+    "likelihood": 1
+  },
+  {
+    "id": "fc79adc9-fdb6-4469-a3d0-27e727363739",
+    "name": "Harmenia D",
+    "type": "planet",
+    "x": 0.1827258002134588,
+    "y": 0.688298609682989,
+    "likelihood": 1
+  },
+  {
+    "id": "24311709-dabd-45d3-9904-8fe6460fb56d",
+    "name": "Hezia",
+    "type": "planet",
+    "x": 0.20975933696599128,
+    "y": 0.670152120534732,
+    "likelihood": 1
+  },
+  {
+    "id": "01636622-3660-4b8f-b057-458b834726e3",
+    "name": "Yole",
+    "type": "planet",
+    "x": 0.27058481250771055,
+    "y": 0.6755470324224104,
+    "likelihood": 1
+  },
+  {
+    "id": "421a28a7-e587-45b1-ae20-4dd91812233d",
+    "name": "Laxywx",
+    "type": "planet",
+    "x": 0.2253556127459193,
+    "y": 0.7285151847532645,
+    "likelihood": 1
+  },
+  {
+    "id": "79a8f4a2-1e0b-4478-9219-04ea9e6dac7f",
+    "name": "Ezrem IV",
+    "type": "planet",
+    "x": 0.22275623741560266,
+    "y": 0.7098782347828726,
+    "likelihood": 1
+  },
+  {
+    "id": "41c2413c-877f-4256-964e-ef2e7e0e3169",
+    "name": "Narmex",
+    "type": "planet",
+    "x": 0.30697613852622807,
+    "y": 0.7775597852120157,
+    "likelihood": 1
+  },
+  {
+    "id": "87df4a31-830b-45b9-b0fc-dacacf4e87a4",
+    "name": "Pukrani",
+    "type": "planet",
+    "x": 0.2893003434436242,
+    "y": 0.7461712355302158,
+    "likelihood": 1
+  },
+  {
+    "id": "7063afda-bc21-4218-b210-dd96cb1b18cd",
+    "name": "Wase III",
+    "type": "planet",
+    "x": 0.30281712371890457,
+    "y": 0.7344005799139074,
+    "likelihood": 1
+  },
+  {
+    "id": "3159e7d1-039c-4452-9240-b9815d1388b7",
+    "name": "Gloorens",
+    "type": "planet",
+    "x": 0.38079850261854464,
+    "y": 0.7304770280418045,
+    "likelihood": 1
+  },
+  {
+    "id": "8baf8600-e095-49d2-896a-6a751de5a500",
+    "name": "Ox de Femtor",
+    "type": "planet",
+    "x": 0.3917158956644943,
+    "y": 0.71527319157221,
+    "likelihood": 1
+  },
+  {
+    "id": "ab45e303-7f15-4aca-91bd-7c1f479270e3",
+    "name": "Système Beng Sor",
+    "type": "system",
+    "x": 0.41095129452706275,
+    "y": 0.6990884783600047,
+    "likelihood": 1
+  },
+  {
+    "id": "2142415e-15cf-4811-8738-4f96b98e588e",
+    "name": "Système Stam",
+    "type": "system",
+    "x": 0.2944990881547504,
+    "y": 0.6917317456346158,
+    "likelihood": 1
+  },
+  {
+    "id": "bff2cadf-0e69-4e3a-bfce-50e458654fcd",
+    "name": "Souexez",
+    "type": "planet",
+    "x": 0.30489658947601694,
+    "y": 0.6995788942804806,
+    "likelihood": 1
+  },
+  {
+    "id": "77c2f8bd-3f09-45f7-8502-16e69634f861",
+    "name": "Cranesty",
+    "type": "planet",
+    "x": 0.31737361009995935,
+    "y": 0.6691712437921211,
+    "likelihood": 1
   }
 ]
