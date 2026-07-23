@@ -141,7 +141,7 @@ export function GameView({ game }: { game: GameController }) {
             onClick={game.nextRound}
             className="bg-indigo-500 hover:bg-indigo-400 px-6 py-2.5 rounded-lg font-semibold text-white transition cursor-pointer"
           >
-            {isLast ? "See results" : "Next round"}
+            {isLast ? "Résultats" : "Suivant"}
           </button>
         </div>
       ) : (
@@ -152,7 +152,7 @@ export function GameView({ game }: { game: GameController }) {
             disabled={!pendingGuess}
             className="bg-indigo-500 enabled:hover:bg-indigo-400 disabled:opacity-40 px-6 py-2.5 rounded-lg font-semibold text-white transition cursor-pointer disabled:cursor-not-allowed"
           >
-            Submit guess
+            Valider
           </button>
           <p className="text-slate-500 text-xs">
             {pendingGuess
