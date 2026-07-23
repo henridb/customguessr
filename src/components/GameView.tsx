@@ -126,7 +126,7 @@ export function GameView({ game }: { game: GameController }) {
         <div className="flex flex-col items-center gap-2 shrink-0">
           <p className="text-slate-200 text-lg">
             {missed && (
-              <span className="mr-2 text-rose-400">Time's up — no guess.</span>
+              <span className="mr-2 text-rose-400">Le temps est écoulé !</span>
             )}
             <span className="font-bold text-emerald-400">
               {(round.score ?? 0).toLocaleString()}
