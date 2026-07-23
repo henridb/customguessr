@@ -56,7 +56,7 @@ function Landing({
       </p>
 
       <div className="flex flex-col items-center gap-2">
-        <span className="text-slate-400 text-sm">Time per round</span>
+        <span className="text-slate-400 text-sm">Temps par tour</span>
         <div className="flex items-center gap-2">
           {TIMER_PRESETS.map((p) => (
             <button
