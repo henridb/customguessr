@@ -108,7 +108,7 @@ export function GameView({ game }: { game: GameController }) {
 
       <div className="text-center shrink-0">
         <p className="text-slate-400 text-sm">
-          Where is this {round.body.type}?
+          Où se situe-t-elle ?
         </p>
         <h2 className="font-bold text-white text-2xl">{round.body.name}</h2>
         {revealed && round.body.description && <p>{round.body.description}</p>}
