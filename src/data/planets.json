@@ -5,7 +5,8 @@
     "type": "planet",
     "x": 0.24908796977690065,
     "y": 0.37239363193511965,
-    "description": "Amler's Arm"
+    "description": "Amler's Arm",
+    "likelihood": 2
   },
   {
     "id": "068f0846-5c13-4014-ac16-7784828d1c9b",

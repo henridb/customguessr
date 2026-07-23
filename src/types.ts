@@ -17,6 +17,8 @@ export interface Body {
   y: number;
   /** Optional flavor text shown on reveal / in the admin editor. */
   description?: string;
+  /** Optional likelihood multiplier for more important planets. Must be an integer. */
+  likelihood?: number;
 }
 
 /** A point on the map in normalized [0, 1] coordinates (a guess or a body). */

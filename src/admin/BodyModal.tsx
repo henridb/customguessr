@@ -26,6 +26,7 @@ export function BodyModal({
   const [description, setDescription] = useState(initial.description ?? "");
   const [x, setX] = useState(initial.x);
   const [y, setY] = useState(initial.y);
+  const [likelihood, setLikelihood] = useState(initial.likelihood ?? 1);
   const [error, setError] = useState<string | null>(null);
 
   function handleSave() {
@@ -41,6 +42,7 @@ export function BodyModal({
       x: clamp01(x),
       y: clamp01(y),
       description: description.trim() || undefined,
+      likelihood: likelihood,
     });
   }
 
@@ -116,6 +118,18 @@ export function BodyModal({
               />
             </label>
           </div>
+
+          <label className="flex flex-col gap-1 text-sm">
+            <span className="text-slate-400">Likelihood</span>
+            <input
+              type="number"
+              step="1"
+              min={0}
+              value={likelihood}
+              onChange={(e) => setLikelihood(Number(e.target.value))}
+              className="bg-slate-800 px-3 py-2 border border-white/10 focus:border-indigo-400 rounded outline-none resize-none"
+            />
+          </label>
 
           {error && <p className="text-rose-400 text-sm">{error}</p>}
         </div>

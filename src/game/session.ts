@@ -30,8 +30,14 @@ function pickRandom<T>(items: readonly T[], count: number): T[] {
  * Start a new game with up to ROUNDS_PER_GAME distinct random bodies. If the pool
  * has fewer bodies than that, the game simply has fewer rounds.
  */
-export function createSession(pool: readonly Body[], count = ROUNDS_PER_GAME): GameSession {
-  const targets = pickRandom(pool, Math.min(count, pool.length));
+export function createSession(
+  pool: readonly Body[],
+  count = ROUNDS_PER_GAME,
+): GameSession {
+  const repeatedPool = pool.flatMap((body) =>
+    Array.from({ length: body.likelihood ?? 1 }, () => body),
+  );
+  const targets = pickRandom(repeatedPool, Math.min(count, pool.length));
   return {
     rounds: targets.map((body) => ({ body, guess: null, score: null })),
     currentIndex: 0,
