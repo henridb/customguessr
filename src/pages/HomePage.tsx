@@ -95,7 +95,7 @@ function Landing({
         onClick={() => onNewGame(seconds)}
         className="bg-indigo-500 hover:bg-indigo-400 px-8 py-3 rounded-lg font-semibold text-white text-lg transition cursor-pointer"
       >
-        New Game
+        Commencer
       </button>
       <Link
         to="/admin"
