@@ -55,14 +55,14 @@ function PasswordGate({ onSuccess }: { onSuccess: () => void }) {
           type="submit"
           className="bg-indigo-500 hover:bg-indigo-400 px-6 py-2 rounded-lg font-semibold text-white transition cursor-pointer"
         >
-          Enter
+          Valider
         </button>
       </form>
       <Link
         to="/"
         className="text-slate-500 hover:text-slate-300 text-sm underline"
       >
-        Back to game
+        Retour au jeu
       </Link>
     </div>
   );
@@ -118,9 +118,9 @@ function Editor() {
     <div className="flex flex-col gap-4 mx-auto px-4 py-6 w-full max-w-5xl h-screen">
       <header className="flex flex-wrap justify-between items-center gap-3 shrink-0">
         <div>
-          <h1 className="font-bold text-2xl">Admin editor</h1>
+          <h1 className="font-bold text-2xl">Administration</h1>
           <p className="text-slate-400 text-sm">
-            {bodies.length} bodies · click empty space to add, a marker to edit.
+            {bodies.length} bodies · Cliquez sur un espace vide pour ajouter une planète.
           </p>
         </div>
         <div className="flex items-center gap-3">
@@ -129,13 +129,13 @@ function Editor() {
             onClick={() => exportBodies(bodies)}
             className="bg-emerald-500 hover:bg-emerald-400 px-4 py-2 rounded-lg font-semibold text-white text-sm transition cursor-pointer"
           >
-            Export planets.json
+            Exporter planets.json
           </button>
           <Link
             to="/"
             className="text-slate-500 hover:text-slate-300 text-sm underline"
           >
-            Back to game
+            Retour au jeu
           </Link>
         </div>
       </header>
