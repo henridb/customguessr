@@ -1,12 +1,11 @@
 [
   {
     "id": "362f6351-998f-4131-a69a-26b6fef6a31d",
-    "name": "Amlersagarm",
+    "name": "Bras d'Amler",
     "type": "planet",
     "x": 0.24908796977690065,
     "y": 0.37239363193511965,
-    "description": "Amler's Arm",
-    "likelihood": 2
+    "description": "L'un des sept bras de l'Univers."
   },
   {
     "id": "068f0846-5c13-4014-ac16-7784828d1c9b",
@@ -14,7 +13,7 @@
     "type": "planet",
     "x": 0.24797918892771173,
     "y": 0.3589300927434939,
-    "description": "Richest planet in the Heavenly Lands."
+    "description": "Le monde le plus riche des Terres paradisiaques."
   },
   {
     "id": "3e0069e2-5e5e-4feb-a3ff-747e3078595d",
@@ -46,14 +45,14 @@
   },
   {
     "id": "4ebd003f-58db-4ab2-b042-a7b804801396",
-    "name": "Manncshaff system",
+    "name": "Système Manncshaff",
     "type": "planet",
     "x": 0.5084573653994302,
     "y": 0.4390894300586472
   },
   {
     "id": "c0416cb2-ac78-4f5d-bc96-662287e85b54",
-    "name": "Cavlexy system",
+    "name": "Système Cavlexy",
     "type": "planet",
     "x": 0.5677932459973752,
     "y": 0.4282637410804039
@@ -99,7 +98,7 @@
     "type": "planet",
     "x": 0.5007783175491897,
     "y": 0.32517495681160374,
-    "description": "Capital of the Heavenly Lands."
+    "description": "Planète-océan, capitale des Terres paradisiaques."
   },
   {
     "id": "d7494c8e-5c44-4f50-913e-e9b4825f4de2",
@@ -113,7 +112,8 @@
     "name": "Laezitopia",
     "type": "planet",
     "x": 0.5206686184971852,
-    "y": 0.3424380493893841
+    "y": 0.3424380493893841,
+    "description": "Œcuménopole."
   },
   {
     "id": "c3863fef-6b73-4416-b9bf-bba1c2e248ea",
@@ -345,7 +345,8 @@
     "name": "Quedor",
     "type": "planet",
     "x": 0.4778330247692489,
-    "y": 0.2443322817742013
+    "y": 0.2443322817742013,
+    "description": "Monde nobiliaire, siège de la maison Quedpyr."
   },
   {
     "id": "60728311-eda6-4f23-ab13-059db03ee207",
@@ -353,7 +354,7 @@
     "type": "planet",
     "x": 0.4976857142888616,
     "y": 0.25852075044472256,
-    "description": "Seat of house Vareno."
+    "description": "Monde nobiliaire, siège de la maison Vareno."
   },
   {
     "id": "f8ef7e6e-177e-48ea-b372-598709fc6123",
@@ -413,11 +414,11 @@
   },
   {
     "id": "df2c8fde-43bf-45a7-a5c5-c2131c1aeaf0",
-    "name": "Nimmlersagarm",
+    "name": "Bras de Nimmler",
     "type": "planet",
     "x": 0.7611314263401137,
     "y": 0.14474791340727655,
-    "description": "(Nimmler's Arm)"
+    "description": "L'un des sept bras de l'Univers."
   },
   {
     "id": "dad13ae2-847e-4450-be5e-ca9b7e012da2",
@@ -425,7 +426,7 @@
     "type": "planet",
     "x": 0.7650830174198985,
     "y": 0.17457093478113964,
-    "description": "Confederated planet."
+    "description": "Planète confédérée, siège de la maison Amori."
   },
   {
     "id": "a5fc65c2-ffa8-41d4-8c0b-96e2534c540a",
@@ -433,14 +434,15 @@
     "type": "planet",
     "x": 0.7538868326444258,
     "y": 0.18575456779633828,
-    "description": "Confederated planet; seat of house Ventris."
+    "description": "Planète confédérée, siège de la maison Ventris."
   },
   {
     "id": "bea77fd1-2819-4e10-9dbb-c39cd47a018c",
     "name": "Qiina",
     "type": "planet",
     "x": 0.7637658103438878,
-    "y": 0.19631686890528177
+    "y": 0.19631686890528177,
+    "description": "Planète semi-confédérée."
   },
   {
     "id": "9db2c94b-db18-4747-9418-086ca4fc0d8b",
@@ -448,7 +450,7 @@
     "type": "planet",
     "x": 0.7413734709411897,
     "y": 0.21682019609981265,
-    "description": "Royal planet; a major power."
+    "description": "Planète royale, puissance majeure de l'Univers. Capitale universelle sous la monarchie de Krenn."
   },
   {
     "id": "9a571813-aab4-44b4-9fe9-a3464ea0cd2c",
@@ -456,7 +458,7 @@
     "type": "planet",
     "x": 0.7558626281843182,
     "y": 0.2211694056778007,
-    "description": "Confederated planet, seat of house Xerain, then of house Kreor-Labdaide."
+    "description": "Planète confédérée, siège des maisons Xerain puis Kreor-Labdaide."
   },
   {
     "id": "e4414e03-59eb-4342-8f76-8d22354870d5",
@@ -464,7 +466,7 @@
     "type": "planet",
     "x": 0.7268843136980612,
     "y": 0.23608091636473225,
-    "description": "Formerly confederated planet."
+    "description": "Planète anciennement confédérée."
   },
   {
     "id": "3011dba3-63a9-4656-be84-091376e9b25a",
@@ -479,7 +481,7 @@
     "type": "planet",
     "x": 0.730177286165717,
     "y": 0.205636563084614,
-    "description": "Confederated planet, seat of house Auxdel."
+    "description": "Planète confédérée, siège de la maison Auxdel."
   },
   {
     "id": "48a88492-79f5-498e-8e2f-d386e2eb1d4f",
@@ -538,13 +540,6 @@
     "y": 0.6156738167283843
   },
   {
-    "id": "3e5ebedb-fb68-4e39-b87a-a91bd8407b76",
-    "name": "Lidder",
-    "type": "planet",
-    "x": 0.676075594694071,
-    "y": 0.5901346159881465
-  },
-  {
     "id": "78dd3a2f-e94e-4fae-819b-499323b82eeb",
     "name": "Cuerde",
     "type": "planet",
@@ -556,7 +551,8 @@
     "name": "Anatorion",
     "type": "planet",
     "x": 0.7957932362503003,
-    "y": 0.5776487671952625
+    "y": 0.5776487671952625,
+    "description": "Siège de la maison Bertion."
   },
   {
     "id": "f6f962bb-df5d-4713-93e3-f3926165821f",
@@ -640,7 +636,8 @@
     "name": "Pontclair",
     "type": "planet",
     "x": 0.6688564123369382,
-    "y": 0.5384886593935645
+    "y": 0.5384886593935645,
+    "description": "Siège du royaume de Birame."
   },
   {
     "id": "f9c02b90-785f-485c-806f-06ef7bc94335",
@@ -724,7 +721,8 @@
     "name": "Germa",
     "type": "planet",
     "x": 0.9314745642807805,
-    "y": 0.3046412431403068
+    "y": 0.3046412431403068,
+    "description": "Puissance agricole."
   },
   {
     "id": "b861ec58-fe5a-41b0-8a6a-d708d626e85e",
@@ -759,35 +757,40 @@
     "name": "Sanaagt",
     "type": "planet",
     "x": 0.8278915654143447,
-    "y": 0.23772512041446048
+    "y": 0.23772512041446048,
+    "description": "Satellite geddalorien."
   },
   {
     "id": "dc1d26fd-d501-4ec2-919f-9a78cb577632",
     "name": "Rignedis",
     "type": "planet",
     "x": 0.8374617150206999,
-    "y": 0.22816567431076815
+    "y": 0.22816567431076815,
+    "description": "Satellite geddalorien."
   },
   {
     "id": "61e6d568-054d-4eb6-a5f1-25bed80ceacd",
     "name": "Camiris",
     "type": "planet",
     "x": 0.8222620383601758,
-    "y": 0.21701297503432945
+    "y": 0.21701297503432945,
+    "description": "Satellite geddalorien."
   },
   {
     "id": "401b708c-9044-4ea6-b323-288c2008e02e",
     "name": "Geddalore",
     "type": "planet",
     "x": 0.8909420931860493,
-    "y": 0.2111710953561167
+    "y": 0.2111710953561167,
+    "description": "Siège des ligues geddaloriennes."
   },
   {
     "id": "92016322-283f-431e-a4fc-9b4ab4a0f4c4",
     "name": "Ralnelag",
     "type": "planet",
     "x": 0.7454895921918264,
-    "y": 0.4441294729450713
+    "y": 0.4441294729450713,
+    "description": "Monde des théâtres."
   },
   {
     "id": "afa6e307-1fbe-4b81-9146-377d2e92ee02",
@@ -844,15 +847,15 @@
     "type": "planet",
     "x": 0.7338365075929263,
     "y": 0.3519073574586259,
-    "description": "Main homeworld of the sineteme."
+    "description": "Siège historique du sinétème."
   },
   {
     "id": "af8a0731-c9a9-46ac-8ae7-f6d9f8247ffb",
-    "name": "Treshlersagarm",
+    "name": "Bras de Treshler",
     "type": "planet",
     "x": 0.7166420653104821,
     "y": 0.3381357266340639,
-    "description": "(Treshler's Arm)"
+    "description": "L'un des sept bras de l'Univers."
   },
   {
     "id": "b24c8a44-522f-44ce-9d0c-1ba819c28b37",
@@ -867,7 +870,7 @@
     "type": "planet",
     "x": 0.8183776300639848,
     "y": 0.34576560802026435,
-    "description": "Capital of the Prime Lands."
+    "description": "Capitale des Terres premières."
   },
   {
     "id": "d6a4b1ad-125f-4ee5-8edd-6036c7c59450",
@@ -895,7 +898,8 @@
     "name": "Rih-Ah",
     "type": "planet",
     "x": 0.6271302880608859,
-    "y": 0.645251460407455
+    "y": 0.645251460407455,
+    "description": "Siège sinétique d'importance."
   },
   {
     "id": "0fe0200f-3775-448f-a8c1-b8fec6b362e3",
@@ -923,7 +927,8 @@
     "name": "Ecrasator",
     "type": "planet",
     "x": 0.6077588650379938,
-    "y": 0.6550414875104853
+    "y": 0.6550414875104853,
+    "description": "Puissance industrielle et scientifique."
   },
   {
     "id": "d1e1f032-d7db-499e-a8c1-340261c31841",
@@ -937,14 +942,16 @@
     "name": "Gamer",
     "type": "planet",
     "x": 0.6381996500241608,
-    "y": 0.6896329265667898
+    "y": 0.6896329265667898,
+    "description": "Membre du Triangle éternel."
   },
   {
     "id": "d25af86b-5bf2-4e97-ab9f-7015b0851c1f",
     "name": "Dhalar",
     "type": "planet",
     "x": 0.6658730707672125,
-    "y": 0.6857169157255776
+    "y": 0.6857169157255776,
+    "description": "Membre du Triangle éternel."
   },
   {
     "id": "331354b5-f0a9-47f1-b1ba-9adbab7c4691",
@@ -1025,11 +1032,11 @@
   },
   {
     "id": "406a8d4b-a7e3-41e2-9339-e3ae4e521c76",
-    "name": "Skellersagarm",
+    "name": "Bras de Skeller",
     "type": "planet",
     "x": 0.6381996412706705,
     "y": 0.8227773250447943,
-    "description": "(Skeller's Arm)"
+    "description": "L'un des sept bras de l'Univers."
   },
   {
     "id": "0027d966-b6d8-44e7-9cda-fb4497323dac",
@@ -1043,7 +1050,8 @@
     "name": "Ings XXI",
     "type": "planet",
     "x": 0.5925384825184374,
-    "y": 0.8195139428413952
+    "y": 0.8195139428413952,
+    "description": "Œcuménopole."
   },
   {
     "id": "c4f9cd02-5e06-4546-be69-9e0cdd0ea718",
@@ -1057,7 +1065,8 @@
     "name": "Lovegod",
     "type": "planet",
     "x": 0.6506526845667341,
-    "y": 0.7033389645110323
+    "y": 0.7033389645110323,
+    "description": "Membre du Triangle éternel."
   },
   {
     "id": "c3fe39ab-6941-4a59-9f9b-81f0d12b86b4",
@@ -1092,7 +1101,8 @@
     "name": "Gleus",
     "type": "planet",
     "x": 0.5939221328826266,
-    "y": 0.7673004848764278
+    "y": 0.7673004848764278,
+    "description": "Œcuménopole, l'une des puissances hégémoniques de l'Univers."
   },
   {
     "id": "f91b7b75-68f2-499a-8520-e107ae3fbe16",
@@ -1162,7 +1172,8 @@
     "name": "Scientefes",
     "type": "planet",
     "x": 0.34209392664581867,
-    "y": 0.7927545553443067
+    "y": 0.7927545553443067,
+    "description": "Œcuménopole."
   },
   {
     "id": "372c85d0-51ed-4612-9798-59c11b230c0c",
@@ -1194,11 +1205,11 @@
   },
   {
     "id": "fe81a506-335c-41d8-82ba-af46bb621fb5",
-    "name": "Edenterra",
+    "name": "Terre",
     "type": "planet",
     "x": 0.5212794278268461,
     "y": 0.6870222626315788,
-    "description": "Terra, Earth; capital of the Broad Lands."
+    "description": "Capitale des Terres étendues."
   },
   {
     "id": "315f93b6-5133-4ba4-9970-f117ebfe0d16",
@@ -1269,5 +1280,20 @@
     "type": "planet",
     "x": 0.5385753107370255,
     "y": 0.5969540132836996
+  },
+  {
+    "id": "2b9fe709-2b8b-4007-99c1-55ff05c9c633",
+    "name": "Ril-Cora",
+    "type": "planet",
+    "x": 0.8621552137387745,
+    "y": 0.19819973307948688,
+    "description": "Satellite geddalorien."
+  },
+  {
+    "id": "f670078b-c2c9-4247-87be-5321a3c98e11",
+    "name": "Trumper",
+    "type": "planet",
+    "x": 0.6777505436199163,
+    "y": 0.6005977855381458
   }
 ]
