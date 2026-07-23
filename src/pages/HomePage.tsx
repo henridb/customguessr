@@ -50,9 +50,9 @@ function Landing({
 
   return (
     <div className="flex flex-col justify-center items-center gap-6 px-4 h-full">
-      <h1 className="font-bold text-4xl tracking-tight">GalaxyGuessr</h1>
+      <h1 className="font-bold text-4xl tracking-tight">SCO ELDER - Planètes de l'Univers</h1>
       <p className="text-slate-400">
-        Guess where each celestial body sits in the galaxy.
+        Placez chaque planète de l'Univers au bon endroit !
       </p>
 
       <div className="flex flex-col items-center gap-2">
