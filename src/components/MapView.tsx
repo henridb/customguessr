@@ -3,7 +3,13 @@ import { useEffect, useRef, useState } from "react";
 import { MAP_IMAGE_URL } from "../data/mapConfig";
 import type { Point } from "../types";
 
-export type MarkerVariant = "guess" | "target" | "planet" | "star";
+export type MarkerVariant =
+  | "guess"
+  | "target"
+  | "planet"
+  | "star"
+  | "system"
+  | "satellite";
 
 export interface MapMarker {
   id: string;
@@ -31,6 +37,8 @@ const VARIANT_STYLE: Record<MarkerVariant, string> = {
   target: "bg-emerald-400 ring-emerald-200",
   planet: "bg-sky-400 ring-sky-200",
   star: "bg-yellow-300 ring-yellow-100",
+  system: "bg-cyan-500 ring-cyan-200",
+  satellite: "bg-gray-700 ring-gray-200",
 };
 
 interface View {
@@ -202,7 +210,7 @@ export function MapView({
     >
       {fw > 0 && (
         <div
-          className="absolute left-0 top-0"
+          className="top-0 left-0 absolute"
           style={{
             width: fw,
             height: fh,
@@ -220,12 +228,12 @@ export function MapView({
               if (naturalWidth > 0 && naturalHeight > 0)
                 setAspect(naturalWidth / naturalHeight);
             }}
-            className="block h-full w-full object-cover"
+            className="block w-full h-full object-cover"
           />
 
           {connections.length > 0 && (
             <svg
-              className="pointer-events-none absolute inset-0 h-full w-full"
+              className="absolute inset-0 w-full h-full pointer-events-none"
               viewBox="0 0 100 100"
               preserveAspectRatio="none"
             >
@@ -277,7 +285,7 @@ export function MapView({
                   }`}
                 />
                 {m.label && (
-                  <span className="mt-1 whitespace-nowrap rounded bg-black/70 px-1.5 py-0.5 text-xs text-white">
+                  <span className="bg-black/70 mt-1 px-1.5 py-0.5 rounded text-white text-xs whitespace-nowrap">
                     {m.label}
                   </span>
                 )}
@@ -290,13 +298,13 @@ export function MapView({
       {/* Zoom controls. stopPropagation on pointer-down so the viewport doesn't
           capture the pointer (which would swallow the button click). */}
       <div
-        className="absolute bottom-2 right-2 flex flex-col overflow-hidden rounded-lg border border-white/10 bg-slate-900/80 text-slate-100 backdrop-blur"
+        className="right-2 bottom-2 absolute flex flex-col bg-slate-900/80 backdrop-blur border border-white/10 rounded-lg overflow-hidden text-slate-100"
         onPointerDown={(e) => e.stopPropagation()}
       >
         <button
           type="button"
           onClick={() => zoomButton(1.3)}
-          className="px-3 py-1.5 text-lg leading-none hover:bg-white/10"
+          className="hover:bg-white/10 px-3 py-1.5 text-lg leading-none"
           aria-label="Zoom in"
         >
           +
@@ -304,7 +312,7 @@ export function MapView({
         <button
           type="button"
           onClick={() => zoomButton(1 / 1.3)}
-          className="border-t border-white/10 px-3 py-1.5 text-lg leading-none hover:bg-white/10"
+          className="hover:bg-white/10 px-3 py-1.5 border-white/10 border-t text-lg leading-none"
           aria-label="Zoom out"
         >
           −
@@ -312,7 +320,7 @@ export function MapView({
         <button
           type="button"
           onClick={resetView}
-          className="border-t border-white/10 px-3 py-1.5 pbe-2.5 text-base leading-none hover:bg-white/10"
+          className="hover:bg-white/10 px-3 py-1.5 border-white/10 border-t text-base leading-none pbe-2.5"
           aria-label="Reset view"
         >
           ⟲

@@ -77,8 +77,10 @@ export function BodyModal({
               onChange={(e) => setType(e.target.value as BodyType)}
               className="bg-slate-800 px-3 py-2 border border-white/10 focus:border-indigo-400 rounded outline-none cursor-pointer"
             >
-              <option value="planet">Planet</option>
-              <option value="star">Star</option>
+              <option value="planet">Planète</option>
+              <option value="star">Étoile</option>
+              <option value="system">Système stellaire</option>
+              <option value="satellite">Satellite</option>
             </select>
           </label>
 

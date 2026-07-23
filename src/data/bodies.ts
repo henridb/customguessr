@@ -9,7 +9,12 @@ import rawBodies from "./planets.json";
 // app reads from. `parseBodies` is shared: it validates both the bundled seed
 // and any JSON the admin re-imports into the editor.
 
-const BODY_TYPES: readonly BodyType[] = ["planet", "star"];
+const BODY_TYPES: readonly BodyType[] = [
+  "planet",
+  "star",
+  "system",
+  "satellite",
+];
 
 function isBody(value: unknown): value is Body {
   if (typeof value !== "object" || value === null) return false;
@@ -43,7 +48,9 @@ export function parseBodies(value: unknown): Body[] {
   const seen = new Set<string>();
   value.forEach((entry, i) => {
     if (!isBody(entry)) {
-      throw new Error(`Body at index ${i} is invalid or missing required fields.`);
+      throw new Error(
+        `Body at index ${i} is invalid or missing required fields.`,
+      );
     }
     if (seen.has(entry.id)) {
       throw new Error(`Duplicate body id "${entry.id}" at index ${i}.`);
