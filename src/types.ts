@@ -4,7 +4,7 @@
 // where (0, 0) is the top-left corner of the image and (1, 1) the bottom-right.
 // Storing them this way keeps every guess, marker, and score independent of the
 // image's pixel size or how large it happens to render on screen.
-export type BodyType = "planet" | "star";
+export type BodyType = "planet" | "star" | "system" | "satellite";
 
 export interface Body {
   /** Stable unique id (slug for seed data, crypto.randomUUID() for admin-created). */

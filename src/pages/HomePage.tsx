@@ -50,13 +50,13 @@ function Landing({
 
   return (
     <div className="flex flex-col justify-center items-center gap-6 px-4 h-full">
-      <h1 className="font-bold text-4xl tracking-tight">GalaxyGuessr</h1>
+      <h1 className="font-bold text-4xl tracking-tight">SCO ELDER - Planètes de l'Univers</h1>
       <p className="text-slate-400">
-        Guess where each celestial body sits in the galaxy.
+        Placez chaque planète de l'Univers au bon endroit !
       </p>
 
       <div className="flex flex-col items-center gap-2">
-        <span className="text-slate-400 text-sm">Time per round</span>
+        <span className="text-slate-400 text-sm">Temps par tour</span>
         <div className="flex items-center gap-2">
           {TIMER_PRESETS.map((p) => (
             <button
@@ -95,7 +95,7 @@ function Landing({
         onClick={() => onNewGame(seconds)}
         className="bg-indigo-500 hover:bg-indigo-400 px-8 py-3 rounded-lg font-semibold text-white text-lg transition cursor-pointer"
       >
-        New Game
+        Commencer
       </button>
       <Link
         to="/admin"
