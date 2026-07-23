@@ -50,7 +50,7 @@ function PasswordGate({ onSuccess }: { onSuccess: () => void }) {
           autoFocus
           className="bg-slate-800 px-3 py-2 border border-white/10 focus:border-indigo-400 rounded outline-none"
         />
-        {error && <p className="text-rose-400 text-sm">Incorrect password.</p>}
+        {error && <p className="text-rose-400 text-sm">Mot de passe invalide.</p>}
         <button
           type="submit"
           className="bg-indigo-500 hover:bg-indigo-400 px-6 py-2 rounded-lg font-semibold text-white transition cursor-pointer"
