@@ -1578,5 +1578,344 @@
     "x": 0.31737361009995935,
     "y": 0.6691712437921211,
     "likelihood": 1
+  },
+  {
+    "id": "b2cc74c4-6b60-4277-a4c8-78dcafd8d667",
+    "name": "Babioska",
+    "type": "planet",
+    "x": 0.36858110757970086,
+    "y": 0.576372472657745,
+    "likelihood": 1
+  },
+  {
+    "id": "2fd29285-549f-4503-b5c2-7479155f2b6b",
+    "name": "Büde",
+    "type": "planet",
+    "x": 0.31298038918773236,
+    "y": 0.5729883967754615,
+    "likelihood": 1
+  },
+  {
+    "id": "2a25dc7f-d1de-495f-bb2a-7f11cb351ca3",
+    "name": "Valxzes",
+    "type": "planet",
+    "x": 0.3243396666183535,
+    "y": 0.5532479197042073,
+    "likelihood": 1
+  },
+  {
+    "id": "b5b033b1-5726-4b69-ac1a-f1ad5fd4d6f1",
+    "name": "Système Arbo",
+    "type": "system",
+    "x": 0.36080894590341206,
+    "y": 0.5408396500753175,
+    "likelihood": 1
+  },
+  {
+    "id": "a5ab7ef7-0bfa-4f39-8afa-718c0f783cf1",
+    "name": "Castori",
+    "type": "planet",
+    "x": 0.34885182040835716,
+    "y": 0.49684666360563123,
+    "likelihood": 1
+  },
+  {
+    "id": "a9ad768e-9652-419f-b833-35fec1afab84",
+    "name": "Nathe",
+    "type": "planet",
+    "x": 0.3715703752695995,
+    "y": 0.4759782042710326,
+    "description": "Capitale des Terres désolées.",
+    "likelihood": 2
+  },
+  {
+    "id": "cab5e602-b5d9-4738-93f0-507291671a0a",
+    "name": "Inferras",
+    "type": "planet",
+    "x": 0.3512432400338221,
+    "y": 0.46187787088255106,
+    "likelihood": 1
+  },
+  {
+    "id": "10f6ff98-4789-41aa-bf97-18d4ce71e28f",
+    "name": "Ttareck",
+    "type": "planet",
+    "x": 0.3458625253507284,
+    "y": 0.4449574914711332,
+    "likelihood": 1
+  },
+  {
+    "id": "7aa40735-13b2-4e28-9a32-6c21ad5b3ec9",
+    "name": "Didart",
+    "type": "planet",
+    "x": 0.387114671254447,
+    "y": 0.446649529412275,
+    "likelihood": 1
+  },
+  {
+    "id": "46bd8686-c9a3-45eb-8a32-8d5652166c64",
+    "name": "Leos",
+    "type": "planet",
+    "x": 0.3632003928966071,
+    "y": 0.4178848844128647,
+    "likelihood": 1
+  },
+  {
+    "id": "dc44fbbc-0f0f-412a-9d56-0a75e816af9e",
+    "name": "Complexas",
+    "type": "planet",
+    "x": 0.3010232363249474,
+    "y": 0.39024827331369893,
+    "likelihood": 1
+  },
+  {
+    "id": "0f1ebaca-fd80-4953-9f27-16dca2f3d6bd",
+    "name": "Mugis",
+    "type": "planet",
+    "x": 0.2519989561126701,
+    "y": 0.4060406188248722,
+    "likelihood": 1
+  },
+  {
+    "id": "2e42e461-2759-4480-b37a-fd1bc0bdc449",
+    "name": "Roches-Minier",
+    "type": "planet",
+    "x": 0.25439037573813505,
+    "y": 0.4269090781594709,
+    "likelihood": 1
+  },
+  {
+    "id": "aa407768-2391-463a-bea9-893cbeebe721",
+    "name": "Iseïne",
+    "type": "planet",
+    "x": 0.27830465409597493,
+    "y": 0.43480526382428253,
+    "likelihood": 1
+  },
+  {
+    "id": "af6f004e-e0f9-4baa-8ef2-b8ea4aeee01c",
+    "name": "Rangel",
+    "type": "planet",
+    "x": 0.22928037388369765,
+    "y": 0.45792979095937025,
+    "likelihood": 1
+  },
+  {
+    "id": "926deaf7-43c7-479d-ba26-7ab6cda198cf",
+    "name": "Veron",
+    "type": "planet",
+    "x": 0.21373607789885019,
+    "y": 0.4613138668416538,
+    "description": "Berceau du cologganisme.",
+    "likelihood": 2
+  },
+  {
+    "id": "7dfe84b6-e794-4a86-8776-0d8ba8d10659",
+    "name": "Latine",
+    "type": "planet",
+    "x": 0.29325110201638865,
+    "y": 0.4630059047827956,
+    "likelihood": 1
+  },
+  {
+    "id": "58d1a34e-9e5e-4c53-b239-8f993654f240",
+    "name": "Natira",
+    "type": "planet",
+    "x": 0.25977109042122876,
+    "y": 0.4889504779408196,
+    "likelihood": 1
+  },
+  {
+    "id": "2d145d7d-b6c3-4179-b8c0-cac677e1bcf9",
+    "name": "Aax",
+    "type": "planet",
+    "x": 0.2998275128283498,
+    "y": 0.48669443595878054,
+    "likelihood": 1
+  },
+  {
+    "id": "2d11a17b-6dc6-4597-8bda-fa337c16690f",
+    "name": "Sarrazin",
+    "type": "planet",
+    "x": 0.197593933849569,
+    "y": 0.49346258772334767,
+    "likelihood": 1
+  },
+  {
+    "id": "a388d25c-58c7-417f-b760-53c8a4f20242",
+    "name": "Revosles",
+    "type": "planet",
+    "x": 0.21732322102091267,
+    "y": 0.5036148153701984,
+    "likelihood": 1
+  },
+  {
+    "id": "26bf168d-b0fb-42df-9cb8-6e978230a825",
+    "name": "Bras de Cringer",
+    "type": "planet",
+    "x": 0.12106821847352435,
+    "y": 0.5053068533113402,
+    "description": "L'un des sept bras de l'Univers.",
+    "likelihood": 1
+  },
+  {
+    "id": "cba602e9-d7f7-4058-8887-4120ac3def40",
+    "name": "Andeddy",
+    "type": "planet",
+    "x": 0.140797505644868,
+    "y": 0.5126390091168045,
+    "likelihood": 1
+  },
+  {
+    "id": "cddabfe6-4129-4deb-82fe-80dcd8026a19",
+    "name": "Anglelor",
+    "type": "planet",
+    "x": 0.22928037388369765,
+    "y": 0.5165870890399853,
+    "likelihood": 1
+  },
+  {
+    "id": "2f2ed47a-fc9b-452b-b474-8a4ac2fdff4f",
+    "name": "Zoz",
+    "type": "planet",
+    "x": 0.1569396496941492,
+    "y": 0.5380195782339313,
+    "likelihood": 1
+  },
+  {
+    "id": "6b08dcae-1d84-4724-84cc-2c4b122cef17",
+    "name": "Kurnuu",
+    "type": "planet",
+    "x": 0.14558035857966298,
+    "y": 0.550427847862821,
+    "likelihood": 1
+  },
+  {
+    "id": "6157b3a3-eab3-419a-8188-03979ab857e6",
+    "name": "Ons",
+    "type": "planet",
+    "x": 0.15395036832038547,
+    "y": 0.5667842232333415,
+    "likelihood": 1
+  },
+  {
+    "id": "e0c19847-3942-455c-a026-5f51ac907879",
+    "name": "Hiim",
+    "type": "planet",
+    "x": 0.17726679861379163,
+    "y": 0.5560679915455936,
+    "likelihood": 1
+  },
+  {
+    "id": "3d719790-0054-4cbd-befe-5ac69356c5f8",
+    "name": "El Sicore",
+    "type": "planet",
+    "x": 0.18982179954101033,
+    "y": 0.5295593885282224,
+    "likelihood": 1
+  },
+  {
+    "id": "36f18fe2-4a1c-48ba-bf77-c275f9bca3c1",
+    "name": "Igo D'Aelfota",
+    "type": "planet",
+    "x": 0.1880282279799791,
+    "y": 0.5419676581571121,
+    "likelihood": 1
+  },
+  {
+    "id": "fe76df8d-9ae1-4806-9769-700423ca6380",
+    "name": "Krisma",
+    "type": "planet",
+    "x": 0.22688894057436765,
+    "y": 0.5600160714687744,
+    "likelihood": 1
+  },
+  {
+    "id": "467e78d8-0102-4c8d-bbb1-149ac9f4988e",
+    "name": "Zama",
+    "type": "planet",
+    "x": 0.22091036414297516,
+    "y": 0.5718603628752169,
+    "likelihood": 1
+  },
+  {
+    "id": "70291e74-5b2e-4888-a675-9bbfd93a2ac6",
+    "name": "Calnac",
+    "type": "planet",
+    "x": 0.17069036043410038,
+    "y": 0.5961128722736492,
+    "likelihood": 1
+  },
+  {
+    "id": "7ee21498-5eca-4304-b7e2-ca7dbb02e9b6",
+    "name": "Barx",
+    "type": "planet",
+    "x": 0.19520251422410406,
+    "y": 0.6124692734626197,
+    "likelihood": 1
+  },
+  {
+    "id": "9bd2be4c-66c0-47f1-9e0e-55d5f1b253ad",
+    "name": "Haden III",
+    "type": "planet",
+    "x": 0.2310739454447289,
+    "y": 0.6203654333089814,
+    "likelihood": 1
+  },
+  {
+    "id": "1b3cee54-320f-4f61-b39f-d0a221a607de",
+    "name": "Alne Nis",
+    "type": "planet",
+    "x": 0.14916750170172546,
+    "y": 0.6203654333089814,
+    "likelihood": 1
+  },
+  {
+    "id": "a669cbcb-a692-4615-8b49-b7a68d84edc2",
+    "name": "Ader",
+    "type": "planet",
+    "x": 0.16770107906033666,
+    "y": 0.6265695552142012,
+    "likelihood": 1
+  },
+  {
+    "id": "bc4b4185-3f60-4e90-ba1b-18bdac9e107b",
+    "name": "Kahravada",
+    "type": "planet",
+    "x": 0.22928037388369765,
+    "y": 0.6350297449199102,
+    "likelihood": 1
+  },
+  {
+    "id": "87ca45a9-3eea-48a9-9b47-2c34fb7adb13",
+    "name": "Älfen",
+    "type": "planet",
+    "x": 0.26634752860092004,
+    "y": 0.5368915443336867,
+    "likelihood": 1
+  },
+  {
+    "id": "25546a61-1a83-4c97-b877-c0e1081eb5f2",
+    "name": "Sion",
+    "type": "planet",
+    "x": 0.3040125313825761,
+    "y": 0.5132030131577018,
+    "likelihood": 1
+  },
+  {
+    "id": "e100d5f1-4b63-4c5a-b9a9-c8a71279c84f",
+    "name": "Ehle",
+    "type": "planet",
+    "x": 0.29683824513845114,
+    "y": 0.5256113086050416,
+    "likelihood": 1
+  },
+  {
+    "id": "8a6d0bd0-b7ce-452c-a6ac-e7704cfaedf0",
+    "name": "Ixine",
+    "type": "planet",
+    "x": 0.30461037944700986,
+    "y": 0.5408396500753175,
+    "likelihood": 1
   }
 ]
