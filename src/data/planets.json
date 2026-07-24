@@ -1612,14 +1612,6 @@
     "likelihood": 1
   },
   {
-    "id": "a5ab7ef7-0bfa-4f39-8afa-718c0f783cf1",
-    "name": "Castori",
-    "type": "planet",
-    "x": 0.34885182040835716,
-    "y": 0.49684666360563123,
-    "likelihood": 1
-  },
-  {
     "id": "a9ad768e-9652-419f-b833-35fec1afab84",
     "name": "Nathe",
     "type": "planet",
@@ -1916,6 +1908,31 @@
     "type": "planet",
     "x": 0.30461037944700986,
     "y": 0.5408396500753175,
+    "likelihood": 1
+  },
+  {
+    "id": "0a34f81a-4f3e-44ae-89c2-410163c74555",
+    "name": "Abdalis",
+    "type": "planet",
+    "x": 0.38243086292031125,
+    "y": 0.49567570082060475,
+    "description": "Capitale du Dédale intérieur.",
+    "likelihood": 2
+  },
+  {
+    "id": "7fbd6839-9b2c-46f1-a1d4-1f7966003993",
+    "name": "Castori",
+    "type": "planet",
+    "x": 0.3475991882778148,
+    "y": 0.5035228494664695,
+    "likelihood": 1
+  },
+  {
+    "id": "baae8029-fc63-4c69-bd4e-4e400da404e5",
+    "name": "Makes",
+    "type": "planet",
+    "x": 0.4281799544067856,
+    "y": 0.4490833595708695,
     "likelihood": 1
   }
 ]
